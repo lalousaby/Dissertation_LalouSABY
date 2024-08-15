@@ -1,0 +1,332 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.StaffsHaven" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="colorSecondary">@color/pinkBright</item>
+        <item name="colorAccent">@color/pinkBright</item>
+        <item name="android:colorBackground">@color/orangeBright</item>
+    </style>
+
+
+    <style name="Theme.StaffsHaven.BlueDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/blueDark</item>
+        <item name="colorAccent">@color/bluePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.BluePinkDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/blueDark</item>
+        <item name="colorAccent">@color/pinkPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.BlueGreenDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/blueDark</item>
+        <item name="colorAccent">@color/greenPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.BlueOrangeDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/blueDark</item>
+        <item name="colorAccent">@color/orangePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.BlueGreyDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/blueDark</item>
+        <item name="colorAccent">@color/greyPastel</item>
+    </style>
+
+    <style name="Theme.StaffsHaven.PinkDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/pinkDark</item>
+        <item name="colorAccent">@color/pinkPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.PinkBlueDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/pinkDark</item>
+        <item name="colorAccent">@color/bluePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.PinkGreenDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/pinkDark</item>
+        <item name="colorAccent">@color/greenPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.PinkOrangeDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/pinkDark</item>
+        <item name="colorAccent">@color/orangePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.PinkGreyDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/pinkDark</item>
+        <item name="colorAccent">@color/greyPastel</item>
+    </style>
+
+    <style name="Theme.StaffsHaven.GreenDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greenDark</item>
+        <item name="colorAccent">@color/greenPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreenBlueDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greenDark</item>
+        <item name="colorAccent">@color/bluePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreenPinkDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greenDark</item>
+        <item name="colorAccent">@color/pinkPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreenOrangeDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greenDark</item>
+        <item name="colorAccent">@color/orangePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreenGreyDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greenDark</item>
+        <item name="colorAccent">@color/greyPastel</item>
+    </style>
+
+    <style name="Theme.StaffsHaven.OrangeDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/orangeDark</item>
+        <item name="colorAccent">@color/orangePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.OrangeBlueDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/orangeDark</item>
+        <item name="colorAccent">@color/bluePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.OrangePinkDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/orangeDark</item>
+        <item name="colorAccent">@color/pinkPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.OrangeGreenDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/orangeDark</item>
+        <item name="colorAccent">@color/greenPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.OrangeGreyDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/orangeDark</item>
+        <item name="colorAccent">@color/greyPastel</item>
+    </style>
+
+    <style name="Theme.StaffsHaven.GreyDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greyDark</item>
+        <item name="colorAccent">@color/greyPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreyBlueDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greyDark</item>
+        <item name="colorAccent">@color/bluePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreyPinkDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greyDark</item>
+        <item name="colorAccent">@color/pinkPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreyGreenDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greyDark</item>
+        <item name="colorAccent">@color/greenPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreyOrangeDark" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greyDark</item>
+        <item name="colorAccent">@color/orangePastel</item>
+    </style>
+
+    <style name="Theme.StaffsHaven.BlueBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/blueBright</item>
+        <item name="colorAccent">@color/bluePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.BluePinkBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/blueBright</item>
+        <item name="colorAccent">@color/pinkPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.BlueGreenBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/blueBright</item>
+        <item name="colorAccent">@color/greenPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.BlueOrangeBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/blueBright</item>
+        <item name="colorAccent">@color/orangePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.BlueGreyBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/blueBright</item>
+        <item name="colorAccent">@color/greyPastel</item>
+    </style>
+
+    <style name="Theme.StaffsHaven.PinkBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/pinkBright</item>
+        <item name="colorAccent">@color/pinkPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.PinkBlueBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/pinkBright</item>
+        <item name="colorAccent">@color/bluePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.PinkGreenBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/pinkBright</item>
+        <item name="colorAccent">@color/greenPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.PinkOrangeBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/pinkBright</item>
+        <item name="colorAccent">@color/orangePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.PinkGreyBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/pinkBright</item>
+        <item name="colorAccent">@color/greyPastel</item>
+    </style>
+
+    <style name="Theme.StaffsHaven.GreenBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greenBright</item>
+        <item name="colorAccent">@color/greenPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreenBlueBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greenBright</item>
+        <item name="colorAccent">@color/bluePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreenPinkBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greenBright</item>
+        <item name="colorAccent">@color/pinkPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreenOrangeBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greenBright</item>
+        <item name="colorAccent">@color/orangePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreenGreyBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greenBright</item>
+        <item name="colorAccent">@color/greyPastel</item>
+    </style>
+
+    <style name="Theme.StaffsHaven.OrangeBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/orangeBright</item>
+        <item name="colorAccent">@color/orangePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.OrangeBlueBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/orangeBright</item>
+        <item name="colorAccent">@color/bluePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.OrangePinkBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/orangeBright</item>
+        <item name="colorAccent">@color/pinkPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.OrangeGreenBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/orangeBright</item>
+        <item name="colorAccent">@color/greenPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.OrangeGreyBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/orangeBright</item>
+        <item name="colorAccent">@color/greyPastel</item>
+    </style>
+
+    <style name="Theme.StaffsHaven.GreyBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greyBright</item>
+        <item name="colorAccent">@color/greyPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreyBlueBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greyBright</item>
+        <item name="colorAccent">@color/bluePastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreyPinkBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greyBright</item>
+        <item name="colorAccent">@color/pinkPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreyGreenBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greyBright</item>
+        <item name="colorAccent">@color/greenPastel</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreyOrangeBright" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greyBright</item>
+        <item name="colorAccent">@color/orangePastel</item>
+    </style>
+
+    <style name="Theme.StaffsHaven.BluePastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/bluePastel</item>
+        <item name="colorAccent">@color/blueDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.BluePinkPastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/bluePastel</item>
+        <item name="colorAccent">@color/pinkDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.BlueGreenPastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/bluePastel</item>
+        <item name="colorAccent">@color/greenDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.BlueOrangePastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/bluePastel</item>
+        <item name="colorAccent">@color/orangeDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.BlueGreyPastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/bluePastel</item>
+        <item name="colorAccent">@color/greyDark</item>
+    </style>
+
+    <style name="Theme.StaffsHaven.PinkPastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/pinkPastel</item>
+        <item name="colorAccent">@color/pinkDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.PinkBluePastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/pinkPastel</item>
+        <item name="colorAccent">@color/blueDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.PinkGreenPastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/pinkPastel</item>
+        <item name="colorAccent">@color/greenDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.PinkOrangePastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/pinkPastel</item>
+        <item name="colorAccent">@color/orangeDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.PinkGreyPastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/pinkPastel</item>
+        <item name="colorAccent">@color/greyDark</item>
+    </style>
+
+    <style name="Theme.StaffsHaven.GreenPastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greenPastel</item>
+        <item name="colorAccent">@color/greenDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreenBluePastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greenPastel</item>
+        <item name="colorAccent">@color/blueDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreenPinkPastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greenPastel</item>
+        <item name="colorAccent">@color/pinkDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreenOrangePastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greenPastel</item>
+        <item name="colorAccent">@color/orangeDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreenGreyPastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greenPastel</item>
+        <item name="colorAccent">@color/greyDark</item>
+    </style>
+
+    <style name="Theme.StaffsHaven.OrangePastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/orangePastel</item>
+        <item name="colorAccent">@color/orangeDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.OrangeBluePastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/orangePastel</item>
+        <item name="colorAccent">@color/blueDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.OrangePinkPastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/orangePastel</item>
+        <item name="colorAccent">@color/pinkDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.OrangeGreenPastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/orangePastel</item>
+        <item name="colorAccent">@color/greenDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.OrangeGreyPastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/orangePastel</item>
+        <item name="colorAccent">@color/greyDark</item>
+    </style>
+
+    <style name="Theme.StaffsHaven.GreyPastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greyPastel</item>
+        <item name="colorAccent">@color/greyDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreyBluePastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greyPastel</item>
+        <item name="colorAccent">@color/blueDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreyPinkPastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greyPastel</item>
+        <item name="colorAccent">@color/pinkDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreyGreenPastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greyPastel</item>
+        <item name="colorAccent">@color/greenDark</item>
+    </style>
+    <style name="Theme.StaffsHaven.GreyOrangePastel" parent="Base.Theme.StaffsHaven">
+        <item name="android:colorBackground">@color/greyPastel</item>
+        <item name="colorAccent">@color/orangeDark</item>
+    </style>
+
+
+</resources>

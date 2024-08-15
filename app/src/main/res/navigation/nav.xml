@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/health">
+
+    <fragment
+        android:id="@+id/food"
+        android:name="com.example.staffshaven.Food"
+        android:label="Food"
+        tools:layout="@layout/fragment_food">
+        <action
+            android:id="@+id/action_food_to_health"
+            app:destination="@id/health" />
+    </fragment>
+    <fragment
+        android:id="@+id/health"
+        android:name="com.example.staffshaven.Health"
+        android:label="Health"
+        tools:layout="@layout/fragment_health">
+        <action
+            android:id="@+id/action_health_to_food"
+            app:destination="@id/food" />
+    </fragment>
+</navigation>

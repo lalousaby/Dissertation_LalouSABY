@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="35dp"
+        android:paddingBottom="100dp"
+        tools:context=".Goals">
+
+        <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="8dp"
+            android:layout_marginTop="65dp"
+            app:cardBackgroundColor="?attr/colorOnPrimary"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/registerHanleyPark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="?attr/colorAccent"
+                    android:src="@drawable/baseline_add_24"
+                    app:layout_anchor="@+id/bottomAppBar"
+                    android:layout_gravity="center"
+                    app:maxImageSize="35dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:text="@string/hanleyPark5K"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="23sp"
+                    android:padding="10dp"/>
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="?attr/colorOnPrimary"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/reminderBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="?attr/colorAccent"
+                    android:src="@drawable/baseline_add_24"
+                    app:layout_anchor="@+id/bottomAppBar"
+                    app:layout_anchorGravity="top|center"
+                    android:layout_gravity="center_vertical"
+                    app:maxImageSize="35dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway"
+                    android:textStyle="bold"
+                    android:text="@string/meditationReminderTxt"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="23sp"
+                    android:layout_gravity="center"
+                    android:padding="10dp"/>
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="20dp"
+            android:layout_column="0"
+            android:layout_row="2"
+            app:cardBackgroundColor="?attr/colorOnPrimary"
+            app:cardCornerRadius="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/enroll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="?attr/colorAccent"
+                    android:src="@drawable/baseline_add_24"
+                    app:layout_anchor="@+id/bottomAppBar"
+                    android:layout_gravity="center_vertical"
+                    app:layout_anchorGravity="top|center"
+                    app:maxImageSize="35dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway"
+                    android:textStyle="bold"
+                    android:text="@string/appointmentReminderTxt"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="23sp"
+                    android:layout_gravity="center"
+                    android:padding="10dp"/>
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="8dp"
+            android:layout_column="0"
+            android:layout_row="3"
+            app:cardBackgroundColor="?attr/colorOnPrimary"
+            app:cardCornerRadius="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/exerciseScheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="?attr/colorAccent"
+                    android:src="@drawable/baseline_add_24"
+                    app:layout_anchor="@+id/bottomAppBar"
+                    android:layout_gravity="center_vertical"
+                    app:layout_anchorGravity="top|center"
+                    app:maxImageSize="35dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway"
+                    android:textStyle="bold"
+                    android:text="Learn more about the Staffs' Exercise Referral Scheme"
+                    android:textColor="?attr/colorAccent"
+                    android:layout_gravity="center"
+                    android:textSize="23sp"
+                    android:padding="10dp"/>
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </GridLayout>
+</ScrollView>

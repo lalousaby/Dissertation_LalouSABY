@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:title="@string/dashboard"
+        android:icon="@drawable/dashboard" />
+
+    <item
+        android:id="@+id/navigation_goals"
+        android:title="@string/goals"
+        android:icon="@drawable/target" />
+
+    <item
+        android:id="@+id/navigation_journaling"
+        android:title=""
+        android:enabled="false" />
+
+    <item
+        android:id="@+id/navigation_healthyHabits"
+        android:title="@string/healthy_habits"
+        android:icon="@drawable/digital_wellbeing" />
+
+    <item
+        android:id="@+id/navigation_relaxation"
+        android:title="@string/relaxation"
+        android:icon="@drawable/self_improvement" />
+
+
+</menu>

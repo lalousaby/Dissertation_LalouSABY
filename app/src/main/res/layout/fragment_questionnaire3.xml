@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/questionnaire3Frag"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Questionnaire3"
+    android:background="?attr/android:colorBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        android:paddingBottom="30dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:paddingTop="65dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:fontFamily="@font/raleway"
+            android:text="@string/registration"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="48dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:fontFamily="@font/raleway"
+            android:text="@string/questionnaire"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:fontFamily="@font/raleway"
+            android:text="@string/three"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="18dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="25dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    app:cardBackgroundColor="?attr/colorOnPrimary"
+                    app:cardCornerRadius="15dp"
+                    >
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:fontFamily="@font/manrope"
+                                android:text="@string/color_preferences"
+                                android:textColor="?attr/colorPrimary"
+                                android:layout_gravity="center"
+                                android:textSize="20dp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/manrope"
+                                android:text="What type of colour would you prefer in the app?"
+                                android:textColor="?attr/colorPrimary"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textSize="18sp"
+                                />
+
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_height="240sp"
+                            android:src="@drawable/full_colours" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="15dp">
+
+                            <CheckBox
+                                android:id="@+id/checkboxDark"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:text="@string/dark"
+                                android:fontFamily="@font/raleway"
+                                android:textStyle="bold"
+                                android:textSize="18sp"
+                                android:buttonTint="?attr/android:colorBackground"/>
+                            <CheckBox
+                                android:id="@+id/checkboxBright"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/bright"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/raleway"
+                                android:textStyle="bold"
+                                android:textSize="18sp"
+                                android:buttonTint="?attr/android:colorBackground"/>
+                            <CheckBox
+                                android:id="@+id/checkboxPastels"                              android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:text="@string/pastels"
+                                android:fontFamily="@font/raleway"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:buttonTint="?attr/android:colorBackground"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/LArrow4"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/arrow_left_yellow"
+                                android:background="@color/transparent"
+                                android:scaleType="fitXY"
+                                android:layout_marginRight="275dp"
+                                />
+
+                            <ImageButton
+                                android:id="@+id/RArrow4"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:background="@color/transparent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/arrow_right_yellow"
+                                />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+</FrameLayout>

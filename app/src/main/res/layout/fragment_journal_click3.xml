@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/journalClick3Frag"
+    tools:context=".Journal_click3">
+
+    <TextView
+        android:id="@+id/title"
+        android:paddingTop="65dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:fontFamily="@font/raleway"
+        android:textStyle="bold"
+        android:text="@string/FAB_journaling"
+        android:textAllCaps="true"
+        android:shadowColor="?attr/colorAccent"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:textColor="?attr/colorOnPrimary"
+        android:layout_margin="5sp"
+        android:textSize="60dp" />
+
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="400sp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="20dp"
+        android:layout_row="1"
+        android:layout_column="0"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="?attr/colorOnPrimary"
+        app:cardCornerRadius="15dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="350sp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="What are 3 positive things you remember from today?"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25dp"
+                android:layout_margin="10dp"/>
+
+            <EditText
+                android:id="@+id/positive1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="12"
+                android:inputType="text"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25dp"
+                android:layout_margin="10dp"
+                />
+            <EditText
+                android:id="@+id/positive2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="12"
+                android:inputType="text"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25dp"
+                android:layout_margin="10dp"
+                />
+            <EditText
+                android:id="@+id/positive3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="12"
+                android:inputType="text"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25dp"
+                android:layout_margin="10dp"
+                />
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="left">
+
+            <ImageButton
+                android:id="@+id/LArrowClick3"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/round_btn"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="20dp"
+                android:elevation="2dp"
+                android:src="@drawable/arrow_left_yellow"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right">
+
+            <ImageButton
+                android:id="@+id/RArrowClick3"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/round_btn"
+                android:scaleType="fitXY"
+                android:layout_marginRight="20dp"
+                android:elevation="2dp"
+                android:src="@drawable/arrow_right_yellow"
+                />
+        </LinearLayout>
+    </FrameLayout>
+
+
+</LinearLayout>

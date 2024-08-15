@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+   >
+
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Emergency"
+    android:paddingTop="60dp"
+    android:paddingBottom="90dp"
+   >
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="20dp"
+    app:cardBackgroundColor="?attr/colorOnPrimary"
+    app:cardCornerRadius="15dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/callBtn"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="@color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/call"
+                android:layout_gravity="center_vertical"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anton"
+                    android:text="@string/NHS_mentalHealthTxt"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="30dp"
+                    android:padding="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_light"
+                    android:textStyle="bold"
+                    android:text="@string/available_24_7"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="20dp"
+                    android:padding="10dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="20dp"
+        android:layout_column="0"
+        android:layout_row="1"
+        app:cardBackgroundColor="?attr/colorOnPrimary"
+        app:cardCornerRadius="15dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/linkTogetherAllBtn"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="@color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/link"
+                android:layout_gravity="center_vertical"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anton"
+                    android:text="@string/TogetherAllTxt"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="30dp"
+                    android:padding="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_light"
+                    android:textStyle="bold"
+                    android:text="@string/available_24_7"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="20dp"
+                    android:padding="10dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="20dp"
+        android:layout_column="0"
+        android:layout_row="2"
+        app:cardBackgroundColor="?attr/colorOnPrimary"
+        app:cardCornerRadius="15dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/linkAppointmentBtn"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="@color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/link"
+                android:layout_gravity="center_vertical"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/StaffsWellBeingTxt"
+                    android:textSize="30dp"
+                    android:textColor="?attr/colorOnBackground"
+                    android:fontFamily="@font/anton"
+                    android:padding="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_light"
+                    android:textStyle="bold"
+                    android:text="@string/available_24_7"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="20dp"
+                    android:padding="10dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="20dp"
+        android:layout_column="0"
+        android:layout_row="3"
+        app:cardBackgroundColor="?attr/colorOnPrimary"
+        app:cardCornerRadius="15dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/btnCallContact"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="@color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/call"
+                android:layout_gravity="center_vertical"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anton"
+                    android:text="Call one of your contact"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="30dp"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</GridLayout>
+</ScrollView>
