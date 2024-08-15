@@ -26,13 +26,16 @@
         android:layout_margin="5sp"
         android:textSize="60dp" />
 
-    <com.google.android.material.card.MaterialCardView
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_marginLeft="20dp"
+        app:cardElevation="10dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
-        app:cardElevation="10dp"
+        android:layout_row="6"
+        android:layout_column="0"
         app:cardBackgroundColor="?attr/colorOnPrimary"
         app:cardCornerRadius="15dp"
         >
@@ -43,22 +46,31 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_gravity="center">
 
                 <TextView
-                    android:id="@+id/txtStudy"
+                    android:id="@+id/txtVeggies"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway"
                     android:textStyle="bold"
-                    android:text="@string/StudyTxt"
-                    android:layout_gravity="center"
+
+                    android:text="Did you eat veggies today?"
                     android:textColor="?attr/colorPrimary"
                     android:textSize="25dp"
                     android:layout_margin="10dp"/>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animationNo"
+                    android:layout_gravity="center"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    app:lottie_rawRes="@raw/veggies"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -66,85 +78,34 @@
                 android:orientation="horizontal"
                 android:layout_gravity="center">
 
-               <FrameLayout
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:id="@+id/frameLayoutClickAnimationYes"
-                   >
-
-                   <com.airbnb.lottie.LottieAnimationView
-                       android:id="@+id/animationYes"
-                       android:layout_width="150dp"
-                       android:layout_height="wrap_content"
-                       app:lottie_rawRes="@raw/yes"
-                       app:lottie_autoPlay="true"
-                       app:lottie_loop="false"/>
-
-                   <ImageButton
-                       android:id="@+id/btnStudyYesAnimation"
-                       android:layout_width="150dp"
-                       android:layout_height="match_parent"
-                       android:layout_margin="10dp"
-                       android:fontFamily="@font/raleway"
-                       android:visibility="visible"
-                       android:background="@color/transparent">
-                   </ImageButton>
-               </FrameLayout>
                 <Button
-                    android:id="@+id/btnStudyYes"
+                    android:id="@+id/btnVeggiesYes"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:backgroundTint="?attr/colorAccent"
-                    android:visibility="gone"
-                    android:fontFamily="@font/raleway"
                     android:text="@string/btnStudyYes"
+                    android:fontFamily="@font/raleway"
+                    android:textStyle="bold"
                     android:textColor="?attr/colorPrimary"
-                    android:textStyle="bold" />
-
-                <FrameLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:id="@+id/frameLayoutClickAnimationNo">
-
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:id="@+id/animationNo"
-                        android:layout_width="150dp"
-                        android:layout_height="200dp"
-                        app:lottie_rawRes="@raw/no2"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="false"/>
-
-                    <ImageButton
-                        android:id="@+id/btnStudyNoAnimation"
-                        android:layout_width="50dp"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        android:fontFamily="@font/raleway"
-                        android:visibility="visible"
-                        android:background="@color/transparent">
-                    </ImageButton>
-                </FrameLayout>
-
+                    android:backgroundTint="?attr/colorAccent"/>
                 <Button
-                    android:id="@+id/btnStudyNo"
+                    android:id="@+id/btnVeggiesNo"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:backgroundTint="?attr/colorAccent"
-                    android:fontFamily="@font/raleway"
                     android:text="@string/btnStudyNo"
-                    android:visibility="gone"
                     android:textColor="?attr/colorPrimary"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/raleway"
+                    android:textStyle="bold"
+                    android:backgroundTint="?attr/colorAccent"/>
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -152,7 +113,7 @@
             android:layout_gravity="left">
 
             <ImageButton
-                android:id="@+id/LArrowClick2"
+                android:id="@+id/LArrowClick6"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@drawable/round_btn"
@@ -169,15 +130,16 @@
             android:orientation="horizontal"
             android:layout_gravity="right">
 
-            <ImageButton
-                android:id="@+id/RArrowClick2"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="@drawable/round_btn"
-                android:scaleType="fitXY"
+            <Button
+                android:id="@+id/submitJournalingClick"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
                 android:layout_marginRight="20dp"
-                android:elevation="2dp"
-                android:src="@drawable/arrow_right_yellow"
+                android:text="@string/submit"
+                android:fontFamily="@font/raleway"
+                android:textStyle="bold"
+                android:backgroundTint="?attr/colorAccent"
+                android:layout_gravity="center"
                 />
         </LinearLayout>
     </FrameLayout>

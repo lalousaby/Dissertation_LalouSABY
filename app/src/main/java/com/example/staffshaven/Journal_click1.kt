@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.EditText
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.activityViewModels
 
 
@@ -13,6 +15,20 @@ class Journal_click1 : Fragment() {
     private val viewModel: MyViewModel by activityViewModels()
 
     private lateinit var RArrowClick : ImageButton
+
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//        val editText = view.findViewById<EditText>(R.id.editDayTxt)
+//
+//        editText.addTextChangedListener { editable ->
+//            viewModel.dayTextJournalClick.value = editable.toString()
+//        }
+//
+//        viewModel.dayTextJournalClick.observe(viewLifecycleOwner) { content ->
+//            editText.setText(content)
+//        }
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,4 +47,5 @@ class Journal_click1 : Fragment() {
 
         return view
     }
+
 }

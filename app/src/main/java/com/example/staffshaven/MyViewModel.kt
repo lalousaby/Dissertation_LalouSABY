@@ -1,6 +1,7 @@
 package com.example.staffshaven
 
 import androidx.compose.runtime.mutableStateListOf
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MyViewModel : ViewModel() {
@@ -9,6 +10,12 @@ class MyViewModel : ViewModel() {
     val checkBoxStates: Map<String, Boolean> = _checkBoxStates
     val _selectedOptions = mutableListOf<String>()
     val selectedOptions: List<String> = _selectedOptions
+
+    val dayTextJournalClick = MutableLiveData<String>("")
+    var selectedStudyBtn: Int? = null
+    var selectedVeggiesBtn: Int? = null
+    val _selectedOptionsJournaling = mutableListOf<String>()
+    val selectedOptionsJournaling: List<String> = _selectedOptionsJournaling
 
     fun setCheckBoxState(key: String, isChecked: Boolean) {
         _checkBoxStates[key] = isChecked
