@@ -1,6 +1,8 @@
 package com.example.staffshaven
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,20 +17,6 @@ class Journal_click1 : Fragment() {
     private val viewModel: MyViewModel by activityViewModels()
 
     private lateinit var RArrowClick : ImageButton
-
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        val editText = view.findViewById<EditText>(R.id.editDayTxt)
-//
-//        editText.addTextChangedListener { editable ->
-//            viewModel.dayTextJournalClick.value = editable.toString()
-//        }
-//
-//        viewModel.dayTextJournalClick.observe(viewLifecycleOwner) { content ->
-//            editText.setText(content)
-//        }
-//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,4 +36,22 @@ class Journal_click1 : Fragment() {
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val editDayTxt = view.findViewById<EditText>(R.id.editDayTxt)
+        editDayTxt.addTextChangedListener (object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                viewModel.onTextChanged(s.toString())
+            }
+        })
+
+        viewModel.dayTextJournalClick.observe(viewLifecycleOwner) { text ->if (editDayTxt.text.toString() != text) { // Check if text needs to be updated
+            editDayTxt.setText(text)
+            }
+        }
+    }
 }

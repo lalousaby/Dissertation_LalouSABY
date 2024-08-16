@@ -70,6 +70,7 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:id="@+id/frameLayoutClickAnimationYes"
+                   android:background="@drawable/frame_selector"
                    >
 
                    <com.airbnb.lottie.LottieAnimationView
@@ -77,6 +78,7 @@
                        android:layout_width="150dp"
                        android:layout_height="wrap_content"
                        app:lottie_rawRes="@raw/yes"
+                       android:layout_gravity="center"
                        app:lottie_autoPlay="true"
                        app:lottie_loop="false"/>
 
@@ -87,8 +89,7 @@
                        android:layout_margin="10dp"
                        android:fontFamily="@font/raleway"
                        android:visibility="visible"
-                       android:background="@color/transparent">
-                   </ImageButton>
+                       android:background="@color/transparent"/>
                </FrameLayout>
                 <Button
                     android:id="@+id/btnStudyYes"
@@ -106,13 +107,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:id="@+id/frameLayoutClickAnimationNo">
+                    android:id="@+id/frameLayoutClickAnimationNo"
+                    android:background="@drawable/frame_selector">
 
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/animationNo"
                         android:layout_width="150dp"
-                        android:layout_height="200dp"
+                        android:layout_height="match_parent"
                         app:lottie_rawRes="@raw/no2"
+                        android:layout_gravity="center"
                         app:lottie_autoPlay="true"
                         app:lottie_loop="false"/>
 
@@ -123,8 +126,7 @@
                         android:layout_margin="10dp"
                         android:fontFamily="@font/raleway"
                         android:visibility="visible"
-                        android:background="@color/transparent">
-                    </ImageButton>
+                        android:background="@color/transparent"/>
                 </FrameLayout>
 
                 <Button

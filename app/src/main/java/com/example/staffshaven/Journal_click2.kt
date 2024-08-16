@@ -24,10 +24,6 @@ class Journal_click2 : Fragment() {
 
     private lateinit var frameLayoutClickAnimationYes : FrameLayout
     private lateinit var frameLayoutClickAnimationNo : FrameLayout
-    private lateinit var selectedStudyBtn: Button
-    private lateinit var studyYes: Button
-    private lateinit var studyNo: Button
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,12 +51,28 @@ class Journal_click2 : Fragment() {
         frameLayoutClickAnimationYes = view.findViewById(R.id.frameLayoutClickAnimationYes)
         frameLayoutClickAnimationYes.setOnClickListener {
             viewModel.selectedStudyBtn = R.id.btnStudyYes
+            viewModel.onStudyYesSelected()
+            updateAnimationSelection()
         }
         frameLayoutClickAnimationNo = view.findViewById(R.id.frameLayoutClickAnimationNo)
         frameLayoutClickAnimationNo.setOnClickListener {
             viewModel.selectedStudyBtn = R.id.btnStudyNo
+            viewModel.onStudyNoSelected()
+            updateAnimationSelection()
         }
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        updateAnimationSelection()
+    }
+
+    private fun updateAnimationSelection() {
+        val selectedStudyBtnId = viewModel.selectedStudyBtnId
+
+        frameLayoutClickAnimationYes.isSelected = viewModel.isStudyYesSelected
+        frameLayoutClickAnimationNo.isSelected = viewModel.isStudyNoSelected
     }
 }

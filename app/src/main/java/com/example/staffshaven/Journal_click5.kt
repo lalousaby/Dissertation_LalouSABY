@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.RadioGroup
 import androidx.fragment.app.activityViewModels
 
 class Journal_click5 : Fragment() {
@@ -41,4 +42,22 @@ class Journal_click5 : Fragment() {
         return view
 
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val radioGroup = view.findViewById<RadioGroup>(R.id.radioGroupJournalClick)
+
+        viewModel.selectedRadioButtonId.observe(viewLifecycleOwner) { checkedId ->
+            if (checkedId != -1) {
+                radioGroup.check(checkedId)
+            }
+        }
+
+        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+            viewModel.onRadioButtonSelected(checkedId)
+        }
+
+    }
+
 }

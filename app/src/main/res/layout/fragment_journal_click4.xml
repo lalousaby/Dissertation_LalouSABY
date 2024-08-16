@@ -43,7 +43,9 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            >
 
             <TextView
                 android:id="@+id/txtSleep"
@@ -51,13 +53,14 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway"
                 android:textStyle="bold"
+                android:layout_gravity="center"
                 android:text="How did you sleep last night?"
                 android:textColor="?attr/colorPrimary"
                 android:textSize="25dp"
                 android:layout_margin="10dp"/>
 
             <RatingBar
-                android:id="@+id/sleepRatingBar"
+                android:id="@+id/sleepRatingBarClick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

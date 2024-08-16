@@ -57,8 +57,9 @@
 
                 <EditText
                     android:id="@+id/editDayTxt"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:ems="12"
                     android:inputType="textMultiLine"
                     android:textColor="?attr/colorPrimary"

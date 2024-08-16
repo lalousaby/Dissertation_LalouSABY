@@ -138,6 +138,7 @@
                 android:text="@string/submit"
                 android:fontFamily="@font/raleway"
                 android:textStyle="bold"
+                android:textColor="?attr/colorPrimary"
                 android:backgroundTint="?attr/colorAccent"
                 android:layout_gravity="center"
                 />

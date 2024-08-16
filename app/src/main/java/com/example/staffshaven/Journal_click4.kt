@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.RatingBar
 import androidx.fragment.app.activityViewModels
 import com.example.staffshaven.Journal_click3
 
@@ -40,5 +41,18 @@ class Journal_click4 : Fragment() {
         }
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val ratingBar = view.findViewById<RatingBar>(R.id.sleepRatingBarClick)
+        ratingBar.onRatingBarChangeListener = RatingBar.OnRatingBarChangeListener { _, rating, _ ->
+            viewModel.onRatingChanged(rating)
+        }
+
+        viewModel.sleepRatingClick.observe(viewLifecycleOwner) { rating ->
+            ratingBar.rating = rating
+        }
     }
 }

@@ -48,6 +48,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway"
                 android:textStyle="bold"
+                android:gravity="center"
                 android:text="@string/nbMealsTxt"
                 android:textColor="?attr/colorPrimary"
                 android:textSize="25dp"
@@ -56,9 +57,11 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:id="@+id/radioGroupJournalClick">
 
                 <RadioButton
+                    android:id="@+id/radioBtn1_click"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:buttonTint="?attr/colorAccent"
@@ -68,6 +71,7 @@
                     android:textSize="20dp"
                     android:textStyle="bold" />
                 <RadioButton
+                    android:id="@+id/radioBtn2_click"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:text="2 meals"
@@ -77,6 +81,7 @@
                     android:textSize="20dp"
                     android:textColor="?attr/colorPrimary"/>
                 <RadioButton
+                    android:id="@+id/radioBtn3_click"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:buttonTint="?attr/colorAccent"
@@ -86,6 +91,7 @@
                     android:textSize="20dp"
                     android:textColor="?attr/colorPrimary"/>
                 <RadioButton
+                    android:id="@+id/radioBtnSnacks_click"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:buttonTint="?attr/colorAccent"
