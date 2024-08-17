@@ -43,8 +43,9 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // Retrieve the theme from SharedPreferences
-        val sharedPrefs= getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
-        val selectedTheme = sharedPrefs.getInt("selectedTheme", R.style.Base_Theme_StaffsHaven) // Default theme
+        val sharedPrefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        val selectedTheme =
+            sharedPrefs.getInt("selectedTheme", R.style.Base_Theme_StaffsHaven) // Default theme
         val selectedNav = sharedPrefs.getString("selectedNav", "Swipe")
         setTheme(selectedTheme)
 
@@ -61,7 +62,8 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
                 .get(Source.SERVER)
                 .addOnSuccessListener { document ->
                     if (document != null && document.exists()) {
-                        val selectedThemeId = document.getLong("selectedTheme")?.toInt() ?: R.style.Base_Theme_StaffsHaven
+                        val selectedThemeId = document.getLong("selectedTheme")?.toInt()
+                            ?: R.style.Base_Theme_StaffsHaven
                         setTheme(selectedThemeId)
                     } else {
                         // Handle case where theme is not found for the email
@@ -98,54 +100,6 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
                 buttonListener("Swipe")
             }
         }
-
-//
-//        super.onCreate(savedInstanceState)
-//
-//        val btn : FloatingActionButton = findViewById(R.id.btnJournaling)
-//        val emergencyCallBtn : ImageButton = findViewById<ImageButton>(R.id.emergencyBtn)
-//        val profileBtn : ImageButton = findViewById<ImageButton>(R.id.profileBtn)
-//
-//        // Replace the fragments when bottom menu clicked
-//        bottomNavView = findViewById(R.id.bottomNavigationView)
-//        bottomNavView.setOnItemSelectedListener{
-//            when (it.itemId){
-//                R.id.navigation_dashboard -> {replaceFragment(Dashboard())
-//                    emergencyCallBtn.visibility = View.VISIBLE}
-//                R.id.navigation_goals -> {replaceFragment(Goals())
-//                    emergencyCallBtn.visibility = View.VISIBLE}
-//                R.id.navigation_healthyHabits -> {replaceFragment(Health())
-//                    emergencyCallBtn.visibility = View.VISIBLE}
-//                R.id.navigation_relaxation -> {replaceFragment(Relaxation())
-//                    emergencyCallBtn.visibility = View.VISIBLE}
-//                else -> {
-//                }
-//            }
-//            true
-//        }
-//
-//        btn.setOnClickListener{
-//            when (it.id){
-//                R.id.btnJournaling -> replaceFragment(Journaling())
-//                else -> {
-//                }
-//            }
-//            true
-//        }
-//
-//        emergencyCallBtn.setOnClickListener{
-//            when (it.id){
-//                R.id.emergencyBtn -> {replaceFragment(Emergency())
-//                    emergencyCallBtn.visibility = View.GONE}
-//            }
-//        }
-//
-//        profileBtn.setOnClickListener{
-//            val intent = Intent(this, Profile::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
-
     }
 
     private fun buttonListener(selectedNav : String) {
@@ -182,7 +136,7 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
                 }
                 "Slide" -> {
                     when (it.id) {
-                        R.id.btnJournaling -> replaceFragment(Journaling()) // CHANGE THIS TO THE GOOD FRAGMENT
+                        R.id.btnJournaling -> replaceFragment(JournalSlideMain())
                         else -> {}
                     }
                     true

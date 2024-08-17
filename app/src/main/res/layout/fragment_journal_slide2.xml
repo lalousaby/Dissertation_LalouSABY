@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="15dp"
+    tools:context=".JournalSlide2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtStudy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
+                android:textStyle="bold"
+                android:text="@string/StudyTxt"
+                android:layout_gravity="center"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25dp"
+                android:layout_margin="10dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/frameLayoutSlideAnimationYes"
+                android:background="@drawable/frame_selector"
+                >
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animationYes"
+                    android:layout_width="150dp"
+                    android:layout_height="300dp"
+                    app:lottie_rawRes="@raw/yes"
+                    android:layout_gravity="center"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="false"/>
+
+                <ImageButton
+                    android:id="@+id/btnStudyYesAnimationSlide"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/raleway"
+                    android:visibility="visible"
+                    android:background="@color/transparent"/>
+            </FrameLayout>
+            <Button
+                android:id="@+id/btnStudyYesSlide"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:backgroundTint="?attr/colorAccent"
+                android:visibility="gone"
+                android:fontFamily="@font/raleway"
+                android:text="@string/btnStudyYes"
+                android:textColor="?attr/colorPrimary"
+                android:textStyle="bold" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/frameLayoutSlideAnimationNo"
+                android:background="@drawable/frame_selector">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animationNo"
+                    android:layout_width="150dp"
+                    android:layout_height="300dp"
+                    app:lottie_rawRes="@raw/no2"
+                    android:layout_gravity="center"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="false"/>
+
+                <ImageButton
+                    android:id="@+id/btnStudyNoAnimationSlide"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/raleway"
+                    android:visibility="visible"
+                    android:background="@color/transparent"/>
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/btnStudyNoSlide"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:backgroundTint="?attr/colorAccent"
+                android:fontFamily="@font/raleway"
+                android:text="@string/btnStudyNo"
+                android:visibility="gone"
+                android:textColor="?attr/colorPrimary"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
