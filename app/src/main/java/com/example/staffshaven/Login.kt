@@ -18,7 +18,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
+import com.google.firebase.firestore.firestore
 
 class Login : AppCompatActivity() {
     private lateinit var editTextEmail : TextInputEditText
@@ -113,4 +116,5 @@ class Login : AppCompatActivity() {
         }
 
     }
+
 }

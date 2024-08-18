@@ -56,53 +56,53 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
         val user = Firebase.auth.currentUser
 
         // Retrieve the theme preference on app launch
-        if (user != null) {
-            val userEmail = user.email
-            db.collection("userThemes").document(userEmail!!) // Use email as document ID
-                .get(Source.SERVER)
-                .addOnSuccessListener { document ->
-                    if (document != null && document.exists()) {
-                        val selectedThemeId = document.getLong("selectedTheme")?.toInt()
-                            ?: R.style.Base_Theme_StaffsHaven
-                        setTheme(selectedThemeId)
-                    } else {
-                        // Handle case where theme is not found for the email
-                        setTheme(R.style.Base_Theme_StaffsHaven) // Set a default theme
+        Firebase.auth.addAuthStateListener { auth ->
+            if (user != null) {
+                val userEmail = user.email
+                db.collection("userData").document(userEmail!!) // Use email as document ID
+                    .get(Source.SERVER)
+                    .addOnSuccessListener { document ->
+                        if (document != null && document.exists()) {
+                            val selectedThemeId = document.getLong("selectedTheme")?.toInt()
+                                ?: R.style.Base_Theme_StaffsHaven
+                            setTheme(selectedThemeId)
+                            binding = ActivityMainBinding.inflate(layoutInflater)
+                            setContentView(binding.root)
+                            val selectedNav = document.getString("selectedNav")
+                            if (selectedNav != null) {
+                                buttonListener(selectedNav)
+                            } else {
+                                buttonListener("Swipe")
+                            }
+                        } else {
+                            // Handle case where theme is not found for the email
+                            setTheme(R.style.Base_Theme_StaffsHaven) // Set a default theme
+                            binding = ActivityMainBinding.inflate(layoutInflater)
+                            setContentView(binding.root)
+                            buttonListener("Swipe")
+                        }
                     }
-                    binding = ActivityMainBinding.inflate(layoutInflater)
-                    setContentView(binding.root)
+                    .addOnFailureListener { e ->
+                        setTheme(R.style.Base_Theme_StaffsHaven) // Set a default theme in case of error
+                        binding = ActivityMainBinding.inflate(layoutInflater)
+                        setContentView(binding.root)
+                        buttonListener("Swipe")
 
-                    if (selectedNav != null) {
-                        buttonListener(selectedNav)
-                    } else {
-                        buttonListener("Swipe")
                     }
-                }
-                .addOnFailureListener { e ->
-                    setTheme(R.style.Base_Theme_StaffsHaven) // Set a default theme in case of error
-                    binding = ActivityMainBinding.inflate(layoutInflater)
-                    setContentView(binding.root)
-                    if (selectedNav != null) {
-                        buttonListener(selectedNav)
-                    } else {
-                        buttonListener("Swipe")
-                    }
-                }
-        } else {
-            // Handle case where user is not logged in
-            setTheme(R.style.Base_Theme_StaffsHaven) // Set a default theme
-            // Inflate layout and set content view after setting the theme
-            binding = ActivityMainBinding.inflate(layoutInflater)
-            setContentView(binding.root)
-            if (selectedNav != null) {
-                buttonListener(selectedNav)
             } else {
-                buttonListener("Swipe")
-            }
+                // Handle case where user is not logged in
+                setTheme(R.style.Base_Theme_StaffsHaven) // Set a default theme
+                // Inflate layout and set content view after setting the theme
+                binding = ActivityMainBinding.inflate(layoutInflater)
+                setContentView(binding.root)
+                if (selectedNav != null) {
+                    buttonListener(selectedNav)
+                }
         }
     }
+    }
 
-    private fun buttonListener(selectedNav : String) {
+    private fun buttonListener(selectedNav: String) {
         val btn : FloatingActionButton = findViewById(R.id.btnJournaling)
         val emergencyCallBtn : ImageButton = findViewById<ImageButton>(R.id.emergencyBtn)
         val profileBtn : ImageButton = findViewById<ImageButton>(R.id.profileBtn)
@@ -143,7 +143,7 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
                 }
                 "Swipe" -> {
                     when (it.id) {
-                        R.id.btnJournaling -> replaceFragment(Journaling()) // CHANGE THIS TO THE GOOD FRAGMENT
+                        R.id.btnJournaling -> replaceFragment(Journaling())
                         else -> {}
                     }
                     true
@@ -156,8 +156,6 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
                     true
                 }
             }
-
-
         }
 
         emergencyCallBtn.setOnClickListener{

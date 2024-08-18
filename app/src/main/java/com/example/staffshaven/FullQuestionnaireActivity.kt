@@ -369,25 +369,17 @@ class FullQuestionnaireActivity : AppCompatActivity(), Questionnaire6.Questionna
         val user = Firebase.auth.currentUser
         if (user != null) {
             val userEmail = user.email
-            val themeData = hashMapOf(
-                "selectedTheme" to selectedTheme
-            )
-            val navData = hashMapOf(
+            val userData = hashMapOf(
+                "selectedTheme" to selectedTheme,
                 "selectedNav" to selectedNav
             )
-            db.collection("userThemes").document(userEmail!!) // Use email as document ID
-                .set(themeData).addOnSuccessListener {
-                    Toast.makeText(this, "Theme preference saved!", Toast.LENGTH_SHORT).show()
+            db.collection("userData").document(userEmail!!) // Use email as document ID
+                .set(userData)
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Perferences saved!", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(this, "Failure saving the theme preference", Toast.LENGTH_SHORT).show()
-                }
-            db.collection("userThemes").document(userEmail!!) // Use email as document ID
-                .set(navData).addOnSuccessListener {
-                    Toast.makeText(this, "Navigation preference saved!", Toast.LENGTH_SHORT).show()
-                }
-                .addOnFailureListener { e ->
-                    Toast.makeText(this, "Failure saving the navigation preference", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Failure saving preferences", Toast.LENGTH_SHORT).show()
                 }
         }
 
