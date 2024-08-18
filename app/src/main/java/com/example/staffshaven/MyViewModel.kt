@@ -12,6 +12,11 @@ class MyViewModel : ViewModel() {
     val _selectedOptions = mutableListOf<String>()
     val selectedOptions: List<String> = _selectedOptions
 
+    //for swipe journaling version
+    val _dayTextJournal = MutableLiveData<String>("")
+    val dayTextJournal : LiveData<String> = _dayTextJournal
+
+    // for click journaling version
     val _dayTextJournalClick = MutableLiveData<String>("")
     val dayTextJournalClick : LiveData<String> = _dayTextJournalClick
 
@@ -19,6 +24,12 @@ class MyViewModel : ViewModel() {
     val _dayTextJournalSlide = MutableLiveData<String>("")
     val dayTextJournalSlide : LiveData<String> = _dayTextJournalSlide
 
+    // for swipe journaling version
+    val _positiveJournal = MutableLiveData<String>("")
+    val positiveJournal : LiveData<String> = _positiveJournal
+
+
+    // for click journaling version
     val _positive1JournalClick = MutableLiveData<String>("")
     val positive1JournalClick : LiveData<String> = _positive1JournalClick
     val _positive2JournalClick = MutableLiveData<String>("")
@@ -34,6 +45,17 @@ class MyViewModel : ViewModel() {
     val _positive3JournalSlide = MutableLiveData<String>("")
     val positive3JournalSlide : LiveData<String> = _positive3JournalSlide
 
+    //for swipe journaling version
+    var selectedStudyBtnSwipe: Int? = null
+    private val _selectedStudyBtnIdSwipe = MutableLiveData<Int>()
+    val selectedStudyBtnIdSwipe:LiveData<Int> = _selectedStudyBtnIdSwipe
+    val isStudyYesSelectedSwipe: Boolean
+        get() = selectedStudyBtnIdSwipe.value == R.id.frameLayoutAnimationYes
+
+    val isStudyNoSelectedSwipe: Boolean
+        get() = selectedStudyBtnIdSwipe.value == R.id.frameLayoutAnimationNo
+
+    // for click journaling version
     var selectedStudyBtn: Int? = null
     private val _selectedStudyBtnId = MutableLiveData<Int>()
     val selectedStudyBtnId:LiveData<Int> = _selectedStudyBtnId
@@ -62,6 +84,10 @@ class MyViewModel : ViewModel() {
     val selectedOptionsJournalingSlide: List<String> = _selectedOptionsJournalingSlide
 
 
+    // for swipe journaling version
+    private val _selectedRadioButtonIdSwipe = MutableLiveData<Int>()
+    val selectedRadioButtonIdSwipe: LiveData<Int> = _selectedRadioButtonIdSwipe
+
     // for click journaling version
     private val _selectedRadioButtonId = MutableLiveData<Int>()
     val selectedRadioButtonId: LiveData<Int> = _selectedRadioButtonId
@@ -69,6 +95,10 @@ class MyViewModel : ViewModel() {
     // for slide journaling version
     private val _selectedRadioButtonIdSlide = MutableLiveData<Int>()
     val selectedRadioButtonIdSlide: LiveData<Int> = _selectedRadioButtonIdSlide
+
+    // for swipe journaling version
+    private val _sleepRating = MutableLiveData<Float>()
+    val sleepRating: LiveData<Float> = _sleepRating
 
     // for click journaling version
     private val _sleepRatingClick = MutableLiveData<Float>()
@@ -91,8 +121,16 @@ class MyViewModel : ViewModel() {
         _selectedRadioButtonId.value = checkedId  // for click journaling version
     }
 
+    fun onRadioButtonSelectedSwipe(checkedId: Int) {
+        _selectedRadioButtonIdSwipe.value = checkedId  // for swipe journaling version
+    }
+
     fun onRadioButtonSelectedSlide(checkedId: Int) {
         _selectedRadioButtonIdSlide.value = checkedId  // for slide journaling version
+    }
+
+    fun onRatingChangedSwipe(rating: Float) {
+        _sleepRating.value = rating
     }
 
     fun onRatingChanged(rating: Float) {
@@ -110,6 +148,9 @@ class MyViewModel : ViewModel() {
         _dayTextJournalSlide.value = text
     }
 
+    fun onPositiveTextChanged(text: String) {
+        _positiveJournal.value = text
+    }
     fun onPositive1TextChanged(text: String) {
         _positive1JournalClick.value = text
     }
@@ -131,6 +172,10 @@ class MyViewModel : ViewModel() {
         _positive3JournalSlide.value = text
     }
 
+
+    fun onStudyYesSelectedSwipe() {
+        _selectedStudyBtnIdSwipe.value = R.id.frameLayoutAnimationYes
+    }
     fun onStudyYesSelected() {
         _selectedStudyBtnId.value = R.id.frameLayoutClickAnimationYes
     }
@@ -138,6 +183,10 @@ class MyViewModel : ViewModel() {
         _selectedStudyBtnIdSlide.value = R.id.frameLayoutSlideAnimationYes
     }
 
+
+    fun onStudyNoSelectedSwipe() {
+        _selectedStudyBtnIdSwipe.value = R.id.frameLayoutAnimationNo
+    }
     fun onStudyNoSelected() {
         _selectedStudyBtnId.value = R.id.frameLayoutClickAnimationNo
     }

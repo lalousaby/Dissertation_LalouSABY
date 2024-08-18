@@ -122,28 +122,93 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_gravity="center">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="200dp"
+                            android:id="@+id/frameLayoutAnimationYes"
+                            android:background="@drawable/frame_selector"
+                            >
 
-                    <Button
-                        android:id="@+id/btnStudyYes"
-                        android:layout_width="150dp"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        android:text="@string/btnStudyYes"
-                        android:textColor="?attr/colorPrimary"
-                        android:fontFamily="@font/raleway"
-                        android:textStyle="bold"
-                        android:backgroundTint="?attr/colorAccent"/>
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/animationYes"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                app:lottie_rawRes="@raw/yes"
+                                android:layout_gravity="center"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="false"/>
 
-                    <Button
-                        android:id="@+id/btnStudyNo"
-                        android:layout_width="150dp"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        android:backgroundTint="?attr/colorAccent"
-                        android:fontFamily="@font/raleway"
-                        android:text="@string/btnStudyNo"
-                        android:textColor="?attr/colorPrimary"
-                        android:textStyle="bold" />
+                            <ImageButton
+                                android:id="@+id/btnStudyYesAnimation"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:fontFamily="@font/raleway"
+                                android:visibility="visible"
+                                android:background="@color/transparent"/>
+                        </FrameLayout>
+
+                        <Button
+                            android:id="@+id/btnStudyYes"
+                            android:layout_width="150dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:text="@string/btnStudyYes"
+                            android:textColor="?attr/colorPrimary"
+                            android:fontFamily="@font/raleway"
+                            android:textStyle="bold"
+                            android:visibility="gone"
+
+                            android:backgroundTint="?attr/colorAccent"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="200dp"
+                            android:layout_gravity="center"
+                            android:id="@+id/frameLayoutAnimationNo"
+                            android:background="@drawable/frame_selector">
+
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/animationNo"
+                                android:layout_width="150dp"
+                                android:layout_height="match_parent"
+                                app:lottie_rawRes="@raw/no2"
+                                android:layout_gravity="center"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="false"/>
+
+                            <ImageButton
+                                android:id="@+id/btnStudyNoAnimation"
+                                android:layout_width="50dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="10dp"
+                                android:fontFamily="@font/raleway"
+                                android:visibility="visible"
+                                android:background="@color/transparent"/>
+                        </FrameLayout>
+
+                        <Button
+                            android:id="@+id/btnStudyNo"
+                            android:layout_width="150dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:backgroundTint="?attr/colorAccent"
+                            android:fontFamily="@font/raleway"
+                            android:text="@string/btnStudyNo"
+                            android:visibility="gone"
+                            android:textColor="?attr/colorPrimary"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -260,9 +325,11 @@
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/radioGroupJournal">
 
                     <RadioButton
+                        android:id="@+id/radioBtn1"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
                         android:buttonTint="?attr/colorAccent"
@@ -272,6 +339,7 @@
                         android:textSize="20dp"
                         android:textStyle="bold" />
                     <RadioButton
+                        android:id="@+id/radioBtn2"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
                         android:text="2 meals"
@@ -281,6 +349,7 @@
                         android:textSize="20dp"
                         android:textColor="?attr/colorPrimary"/>
                     <RadioButton
+                        android:id="@+id/radioBtn3"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
                         android:buttonTint="?attr/colorAccent"
@@ -290,6 +359,7 @@
                         android:textSize="20dp"
                         android:textColor="?attr/colorPrimary"/>
                     <RadioButton
+                        android:id="@+id/radioBtnSnacks"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
                         android:buttonTint="?attr/colorAccent"
