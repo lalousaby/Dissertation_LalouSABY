@@ -49,69 +49,6 @@ class Journaling : Fragment() {
         buttonEatNo = view.findViewById(R.id.btnVeggiesNo)
         submitJournaling = view.findViewById(R.id.submitJournaling)
 
-        submitJournaling.setOnClickListener {
-            viewModel._selectedOptionsJournaling.clear()
-
-            val dayTextJournal = viewModel.dayTextJournal.value
-            if (!dayTextJournal.isNullOrEmpty()) {
-                viewModel._selectedOptionsJournaling.add("Text: $dayTextJournal")
-            }
-
-            val positiveJournal = viewModel.positiveJournal.value
-            if (!positiveJournal.isNullOrEmpty()) {
-                viewModel._selectedOptionsJournaling.add("Positive: $positiveJournal")
-            }
-
-            when (viewModel.sleepRatingClick.value) {
-                0.5f -> viewModel._selectedOptionsJournaling.add("0.5 stars")
-                1.0f -> viewModel._selectedOptionsJournaling.add("1 star")
-                1.5f -> viewModel._selectedOptionsJournaling.add("1.5 stars")
-                2.0f -> viewModel._selectedOptionsJournaling.add("2 stars")
-                2.5f -> viewModel._selectedOptionsJournaling.add("2.5 stars")
-                3.0f -> viewModel._selectedOptionsJournaling.add("3 stars")
-                3.5f -> viewModel._selectedOptionsJournaling.add("3.5 stars")
-                4.0f -> viewModel._selectedOptionsJournaling.add("4 stars")
-                4.5f -> viewModel._selectedOptionsJournaling.add("4.5 stars")
-                5.0f -> viewModel._selectedOptionsJournaling.add("5 stars")
-            }
-
-            when (viewModel.selectedRadioButtonIdSwipe.value) {
-                R.id.radioBtn1 -> viewModel._selectedOptionsJournaling.add("1 meal")
-                R.id.radioBtn2 -> viewModel._selectedOptionsJournaling.add("2 meals")
-                R.id.radioBtn3 -> viewModel._selectedOptionsJournaling.add("3 meals!")
-                R.id.radioBtnSnacks -> viewModel._selectedOptionsJournaling.add("Only snacks")
-            }
-
-            val selectedOptionsJournaling = viewModel.selectedOptions
-            val summary = "Selected Options Journaling: ${selectedOptionsJournaling.joinToString(", ")}"
-            Toast.makeText(requireContext(), summary, Toast.LENGTH_SHORT).show()
-
-            val journalingFrag = Journaling()
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-
-            transaction.replace(R.id.frame_layout, journalingFrag)
-            transaction.commit()
-        }
-
-        buttonStudyYes.setOnClickListener {
-            selectedButtonId = buttonStudyYes
-            updateButtonColors()
-        }
-
-        buttonStudyNo.setOnClickListener {
-            selectedButtonId = buttonStudyNo
-            updateButtonColors()
-        }
-
-        buttonEatYes.setOnClickListener {
-            selectedButtonIdEat = buttonEatYes
-            updateButtonColorsEat()
-        }
-
-        buttonEatNo.setOnClickListener {
-            selectedButtonIdEat = buttonEatNo
-            updateButtonColorsEat()
-        }
 
         val editDayTxt = view.findViewById<EditText>(R.id.editDayTxt)
         editDayTxt.addTextChangedListener (object : TextWatcher {
@@ -119,7 +56,7 @@ class Journaling : Fragment() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
             override fun afterTextChanged(s: Editable?) {
-                viewModel.onTextChanged(s.toString())
+                viewModel.onTextChangedSwipe(s.toString())
             }
         })
 
@@ -178,6 +115,104 @@ class Journaling : Fragment() {
             viewModel.onStudyNoSelectedSwipe()
             updateAnimationSelection()
         }
+
+        submitJournaling.setOnClickListener {
+            viewModel._selectedOptions.clear()
+
+            val dayTextJournal = viewModel.dayTextJournal.value
+            if (!dayTextJournal.isNullOrEmpty()) {
+                viewModel._selectedOptions.add("Text: $dayTextJournal")
+            }
+
+            when (viewModel.selectedStudyBtnSwipe) {
+                R.id.btnStudyYes -> viewModel._selectedOptions.add("Study Yes")
+                R.id.btnStudyNo -> viewModel._selectedOptions.add("Study No")
+            }
+
+            val positiveJournal = viewModel.positiveJournal.value
+            if (!positiveJournal.isNullOrEmpty()) {
+                viewModel._selectedOptions.add("Positive: $positiveJournal")
+            }
+
+            when (viewModel.sleepRating.value) {
+                0.5f -> viewModel._selectedOptions.add("0.5 stars")
+                1.0f -> viewModel._selectedOptions.add("1 star")
+                1.5f -> viewModel._selectedOptions.add("1.5 stars")
+                2.0f -> viewModel._selectedOptions.add("2 stars")
+                2.5f -> viewModel._selectedOptions.add("2.5 stars")
+                3.0f -> viewModel._selectedOptions.add("3 stars")
+                3.5f -> viewModel._selectedOptions.add("3.5 stars")
+                4.0f -> viewModel._selectedOptions.add("4 stars")
+                4.5f -> viewModel._selectedOptions.add("4.5 stars")
+                5.0f -> viewModel._selectedOptions.add("5 stars")
+            }
+
+            when (viewModel.selectedRadioButtonIdSwipe.value) {
+                R.id.radioBtn1 -> viewModel._selectedOptions.add("1 meal")
+                R.id.radioBtn2 -> viewModel._selectedOptions.add("2 meals")
+                R.id.radioBtn3 -> viewModel._selectedOptions.add("3 meals!")
+                R.id.radioBtnSnacks -> viewModel._selectedOptions.add("Only snacks")
+            }
+
+            when (viewModel.selectedVeggiesBtnSwipe) {
+                R.id.btnVeggiesYes -> viewModel._selectedOptions.add("Veggies Yes")
+                R.id.btnVeggiesNo -> viewModel._selectedOptions.add("Veggies No")
+            }
+
+            val selectedOptions = viewModel.selectedOptions
+            val summary = "Selected Options Journaling: ${selectedOptions.joinToString(", ")}"
+            Toast.makeText(requireContext(), summary, Toast.LENGTH_SHORT).show()
+
+            editDayTxt.text.clear()
+
+            positive1.text.clear()
+
+            ratingBar.rating = 0f
+
+            radioGroup.clearCheck()
+
+            val veggiesYes = view.findViewById<Button>(R.id.btnVeggiesYes)
+            veggiesYes.isSelected = false
+            val veggiesNo = view.findViewById<Button>(R.id.btnVeggiesNo)
+            veggiesNo.isSelected = false
+
+            val studyYes = view.findViewById<Button>(R.id.btnStudyYes)
+            studyYes.isSelected = false
+            val studyNo = view.findViewById<Button>(R.id.btnStudyNo)
+            studyNo.isSelected = false
+
+            val journalingFrag = Journaling()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+
+            transaction.replace(R.id.frame_layout, journalingFrag)
+            transaction.commit()
+        }
+
+        buttonStudyYes.setOnClickListener {
+            selectedButtonId = buttonStudyYes
+            viewModel.selectedStudyBtnSwipe = R.id.btnStudyYes
+            updateButtonColors()
+        }
+
+        buttonStudyNo.setOnClickListener {
+            selectedButtonId = buttonStudyNo
+            viewModel.selectedStudyBtnSwipe = R.id.btnStudyNo
+            updateButtonColors()
+        }
+
+        buttonEatYes.setOnClickListener {
+            selectedButtonIdEat = buttonEatYes
+            viewModel.selectedVeggiesBtnSwipe = R.id.btnVeggiesYes
+            updateButtonColorsEat()
+        }
+
+        buttonEatNo.setOnClickListener {
+            selectedButtonIdEat = buttonEatNo
+            viewModel.selectedVeggiesBtnSwipe = R.id.btnVeggiesNo
+            updateButtonColorsEat()
+        }
+
+
     }
 
     private fun updateAnimationSelection() {

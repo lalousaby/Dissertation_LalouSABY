@@ -74,7 +74,10 @@ class MyViewModel : ViewModel() {
     val isStudyNoSelectedSlide: Boolean
         get() = selectedStudyBtnIdSlide.value == R.id.frameLayoutSlideAnimationNo
 
+
     var selectedVeggiesBtn: Int? = null
+    var selectedVeggiesBtnSwipe: Int? = null
+
     val _selectedOptionsJournaling = mutableListOf<String>()
     val selectedOptionsJournaling: List<String> = _selectedOptionsJournaling
 
@@ -139,6 +142,10 @@ class MyViewModel : ViewModel() {
 
     fun onRatingChangedSlide(rating: Float) {
         _sleepRatingSlide.value = rating
+    }
+
+    fun onTextChangedSwipe(text: String) {
+        _dayTextJournal.value = text
     }
 
     fun onTextChanged(text: String) {
