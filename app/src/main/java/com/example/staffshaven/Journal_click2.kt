@@ -13,7 +13,12 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import com.example.staffshaven.Journal_click3
+import com.example.staffshaven.databinding.ActivityMainBinding
 import com.google.android.material.card.MaterialCardView
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
+import com.google.firebase.firestore.Source
+import com.google.firebase.firestore.firestore
 
 
 class Journal_click2 : Fragment() {
@@ -61,6 +66,45 @@ class Journal_click2 : Fragment() {
             updateAnimationSelection()
         }
 
+        // store the theme in Firestore
+        val db = Firebase.firestore
+        val user = Firebase.auth.currentUser
+
+        val btnStudyYes : Button = view.findViewById(R.id.btnStudyYes)
+        val btnStudyNo : Button = view.findViewById(R.id.btnStudyNo)
+
+
+        Firebase.auth.addAuthStateListener { auth ->
+            if (user != null) {
+                val userEmail = user.email
+                db.collection("userData").document(userEmail!!) // Use email as document ID
+                    .get(Source.SERVER)
+                    .addOnSuccessListener { document ->
+                        if (document != null && document.exists()) {
+                            val selectedType = document.getString("selectedType")
+                            if (selectedType != null) {
+                                when (selectedType) {
+                                    "Images" -> {
+                                        frameLayoutClickAnimationYes.visibility = View.VISIBLE
+                                        frameLayoutClickAnimationNo.visibility = View.VISIBLE
+                                        btnStudyYes.visibility = View.GONE
+                                        btnStudyNo.visibility = View.GONE
+                                    }
+                                    "Text" -> {
+                                        frameLayoutClickAnimationYes.visibility = View.GONE
+                                        frameLayoutClickAnimationNo.visibility = View.GONE
+                                        btnStudyYes.visibility = View.VISIBLE
+                                        btnStudyNo.visibility = View.VISIBLE
+                                    }
+//
+                                }
+                            }
+
+                        }
+                    }
+            }
+        }
+
         return view
     }
 
@@ -72,7 +116,15 @@ class Journal_click2 : Fragment() {
     private fun updateAnimationSelection() {
         val selectedStudyBtnId = viewModel.selectedStudyBtnId
 
-        frameLayoutClickAnimationYes.isSelected = viewModel.isStudyYesSelected
-        frameLayoutClickAnimationNo.isSelected = viewModel.isStudyNoSelected
+        if (frameLayoutClickAnimationYes.visibility == View.VISIBLE) {
+            frameLayoutClickAnimationYes.isSelected = viewModel.isStudyYesSelected
+        } else {
+            frameLayoutClickAnimationYes.isSelected = false // Set to false if GONE
+        }
+        if (frameLayoutClickAnimationNo.visibility == View.VISIBLE) {
+            frameLayoutClickAnimationNo.isSelected = viewModel.isStudyNoSelected
+        } else {
+        frameLayoutClickAnimationNo.isSelected = false // Set to false if GONE
+    }
     }
 }

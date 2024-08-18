@@ -40,31 +40,29 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/txtStudy"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
+                android:textStyle="bold"
+                android:text="@string/StudyTxt"
+                android:layout_gravity="center"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25dp"
+                android:layout_margin="10dp"
+                android:gravity="center"/>
 
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/txtStudy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/raleway"
-                    android:textStyle="bold"
-                    android:text="@string/StudyTxt"
-                    android:layout_gravity="center"
-                    android:textColor="?attr/colorPrimary"
-                    android:textSize="25dp"
-                    android:layout_margin="10dp"/>
-            </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:gravity="center">
 
                <FrameLayout
                    android:layout_width="wrap_content"
@@ -78,6 +76,7 @@
                        android:layout_width="150dp"
                        android:layout_height="wrap_content"
                        app:lottie_rawRes="@raw/yes"
+                       android:visibility="gone"
                        android:layout_gravity="center"
                        app:lottie_autoPlay="true"
                        app:lottie_loop="false"/>
@@ -88,16 +87,16 @@
                        android:layout_height="match_parent"
                        android:layout_margin="10dp"
                        android:fontFamily="@font/raleway"
-                       android:visibility="visible"
                        android:background="@color/transparent"/>
                </FrameLayout>
                 <Button
                     android:id="@+id/btnStudyYes"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:backgroundTint="?attr/colorAccent"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:fontFamily="@font/raleway"
                     android:text="@string/btnStudyYes"
                     android:textColor="?attr/colorPrimary"
@@ -116,6 +115,7 @@
                         android:layout_height="match_parent"
                         app:lottie_rawRes="@raw/no2"
                         android:layout_gravity="center"
+                        android:visibility="gone"
                         app:lottie_autoPlay="true"
                         app:lottie_loop="false"/>
 
@@ -125,7 +125,6 @@
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:fontFamily="@font/raleway"
-                        android:visibility="visible"
                         android:background="@color/transparent"/>
                 </FrameLayout>
 
@@ -134,10 +133,11 @@
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
+                    android:layout_gravity="center"
                     android:backgroundTint="?attr/colorAccent"
                     android:fontFamily="@font/raleway"
                     android:text="@string/btnStudyNo"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:textColor="?attr/colorPrimary"
                     android:textStyle="bold" />
             </LinearLayout>

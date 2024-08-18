@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
                             val selectedNav = document.getString("selectedNav")
                             if (selectedNav != null) {
                                 buttonListener(selectedNav)
+
                             } else {
                                 buttonListener("Swipe")
                             }

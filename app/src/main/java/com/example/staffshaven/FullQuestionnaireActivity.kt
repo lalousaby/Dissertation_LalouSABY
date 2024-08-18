@@ -20,6 +20,8 @@ import com.google.firebase.firestore.firestore
 class FullQuestionnaireActivity : AppCompatActivity(), Questionnaire6.QuestionnaireListener {
     private var selectedTheme : Int = 0
     private var selectedNav : String = ""
+    private var selectedType : String = ""
+    private var selectedContent : String = ""
 
     private lateinit var binding: ActivityFullQuestionnaireBinding
 
@@ -357,11 +359,32 @@ class FullQuestionnaireActivity : AppCompatActivity(), Questionnaire6.Questionna
             selectedNav = "Slide"
         }
 
+        if (selectedOptions.contains("Images")) {
+            selectedType = "Images"
+        }
+        if (selectedOptions.contains("Text")) {
+            selectedType = "Text"
+        }
+
+        if (selectedOptions.contains("Food")) {
+            selectedContent = "Food"
+        }
+        if (selectedOptions.contains("Sleep")) {
+            selectedContent = "Sleep"
+        }
+        if (selectedOptions.contains("Sport")) {
+            selectedContent = "Sport"
+        }
+        if (selectedOptions.contains("Relaxation")) {
+            selectedContent = "Relaxation"
+        }
 
         val sharedPrefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
         val editor = sharedPrefs.edit()
         editor.putInt("selectedTheme", selectedTheme)
         editor.putString("selectedNav", selectedNav)
+        editor.putString("selectedType", selectedType)
+        editor.putString("selectedContent", selectedContent)
         editor.apply()
 
         // store the theme in Firestore
@@ -371,7 +394,9 @@ class FullQuestionnaireActivity : AppCompatActivity(), Questionnaire6.Questionna
             val userEmail = user.email
             val userData = hashMapOf(
                 "selectedTheme" to selectedTheme,
-                "selectedNav" to selectedNav
+                "selectedNav" to selectedNav,
+                "selectedType" to selectedType,
+                "selectedContent" to selectedContent
             )
             db.collection("userData").document(userEmail!!) // Use email as document ID
                 .set(userData)

@@ -9,7 +9,12 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import com.airbnb.lottie.LottieAnimationView
 import com.example.staffshaven.Journal_click3
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
+import com.google.firebase.firestore.Source
+import com.google.firebase.firestore.firestore
 
 
 class Journal_click6 : Fragment() {
@@ -46,6 +51,37 @@ class Journal_click6 : Fragment() {
         btnVeggiesNo.setOnClickListener {
             viewModel.selectedVeggiesBtn = R.id.btnVeggiesNo
             updateButtonColors()
+        }
+
+        var animationVeggies : LottieAnimationView = view.findViewById(R.id.animationVeggies)
+
+        // store the theme in Firestore
+        val db = Firebase.firestore
+        val user = Firebase.auth.currentUser
+
+        Firebase.auth.addAuthStateListener { auth ->
+            if (user != null) {
+                val userEmail = user.email
+                db.collection("userData").document(userEmail!!) // Use email as document ID
+                    .get(Source.SERVER)
+                    .addOnSuccessListener { document ->
+                        if (document != null && document.exists()) {
+                            val selectedType = document.getString("selectedType")
+                            if (selectedType != null) {
+                                when (selectedType) {
+                                    "Images" -> {
+                                        animationVeggies.visibility = View.VISIBLE
+                                    }
+                                    "Text" -> {
+                                        animationVeggies.visibility = View.GONE
+                                    }
+//
+                                }
+                            }
+
+                        }
+                    }
+            }
         }
 
         return view
@@ -111,6 +147,7 @@ class Journal_click6 : Fragment() {
         }
 
     }
+
 
     private fun updateButtonColors() {
 

@@ -33,9 +33,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         app:cardElevation="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_row="4"
-        android:layout_column="0"
+
         app:cardBackgroundColor="?attr/colorOnPrimary"
         app:cardCornerRadius="15dp"
         >
@@ -72,6 +70,7 @@
                 android:id="@+id/animationNo"
                 android:layout_gravity="center"
                 android:layout_width="150dp"
+                android:visibility="gone"
                 android:layout_height="200dp"
                 app:lottie_rawRes="@raw/sleep"
                 app:lottie_autoPlay="true"
