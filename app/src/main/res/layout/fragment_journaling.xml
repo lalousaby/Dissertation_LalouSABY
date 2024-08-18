@@ -131,6 +131,7 @@
                             android:layout_height="200dp"
                             android:id="@+id/frameLayoutAnimationYes"
                             android:background="@drawable/frame_selector"
+                            android:visibility="gone"
                             >
 
                             <com.airbnb.lottie.LottieAnimationView
@@ -161,8 +162,6 @@
                             android:textColor="?attr/colorPrimary"
                             android:fontFamily="@font/raleway"
                             android:textStyle="bold"
-                            android:visibility="gone"
-
                             android:backgroundTint="?attr/colorAccent"/>
                     </LinearLayout>
 
@@ -175,6 +174,7 @@
                             android:layout_height="200dp"
                             android:layout_gravity="center"
                             android:id="@+id/frameLayoutAnimationNo"
+                            android:visibility="gone"
                             android:background="@drawable/frame_selector">
 
                             <com.airbnb.lottie.LottieAnimationView
@@ -204,7 +204,6 @@
                             android:backgroundTint="?attr/colorAccent"
                             android:fontFamily="@font/raleway"
                             android:text="@string/btnStudyNo"
-                            android:visibility="gone"
                             android:textColor="?attr/colorPrimary"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -290,8 +289,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:numStars="5"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
                     android:progressTint="?attr/colorAccent" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animationSleep"
+                    android:layout_gravity="center"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    app:lottie_rawRes="@raw/sleep"
+                    android:visibility="gone"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"/>
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -391,11 +401,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
                     <TextView
                         android:id="@+id/txtVeggies"
                         android:layout_width="wrap_content"
@@ -406,7 +411,16 @@
                         android:textColor="?attr/colorPrimary"
                         android:textSize="25dp"
                         android:layout_margin="10dp"/>
-                </LinearLayout>
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/animationVeggies"
+                        android:layout_gravity="center"
+                        android:layout_width="150dp"
+                        android:visibility="gone"
+                        android:layout_height="150dp"
+                        app:lottie_rawRes="@raw/veggies"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"/>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

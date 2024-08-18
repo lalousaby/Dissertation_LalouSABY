@@ -16,6 +16,11 @@ import androidx.core.content.ContextCompat
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import com.airbnb.lottie.LottieAnimationView
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
+import com.google.firebase.firestore.Source
+import com.google.firebase.firestore.firestore
 
 
 class Journaling : Fragment() {
@@ -38,7 +43,54 @@ class Journaling : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for journaling fragment
-        return inflater.inflate(R.layout.fragment_journaling, container, false)
+        val view = inflater.inflate(R.layout.fragment_journaling, container, false)
+
+        val db = Firebase.firestore
+        val user = Firebase.auth.currentUser
+
+        val animationVeggies : LottieAnimationView = view.findViewById(R.id.animationVeggies)
+        val frameLayoutAnimationYes : FrameLayout = view.findViewById(R.id.frameLayoutAnimationYes)
+        val frameLayoutAnimationNo : FrameLayout = view.findViewById(R.id.frameLayoutAnimationNo)
+        val animationSleep : LottieAnimationView = view.findViewById(R.id.animationSleep)
+        val btnStudyYes : Button = view.findViewById(R.id.btnStudyYes)
+        val btnStudyNo : Button = view.findViewById(R.id.btnStudyNo)
+
+        Firebase.auth.addAuthStateListener { auth ->
+            if (user != null) {
+                val userEmail = user.email
+                db.collection("userData").document(userEmail!!) // Use email as document ID
+                    .get(Source.SERVER)
+                    .addOnSuccessListener { document ->
+                        if (document != null && document.exists()) {
+                            val selectedType = document.getString("selectedType")
+                            if (selectedType != null) {
+                                when (selectedType) {
+                                    "Images" -> {
+                                        animationVeggies.visibility = View.VISIBLE
+                                        frameLayoutAnimationYes.visibility = View.VISIBLE
+                                        frameLayoutAnimationNo.visibility = View.VISIBLE
+                                        animationSleep.visibility = View.VISIBLE
+                                        btnStudyYes.visibility = View.GONE
+                                        btnStudyNo.visibility = View.GONE
+                                    }
+                                    "Text" -> {
+                                        animationVeggies.visibility = View.GONE
+                                        frameLayoutAnimationYes.visibility = View.GONE
+                                        frameLayoutAnimationNo.visibility = View.GONE
+                                        animationSleep.visibility = View.GONE
+                                        btnStudyYes.visibility = View.VISIBLE
+                                        btnStudyNo.visibility = View.VISIBLE
+                                    }
+//
+                                }
+                            }
+
+                        }
+                    }
+            }
+        }
+
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
