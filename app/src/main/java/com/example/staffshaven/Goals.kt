@@ -20,7 +20,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class Goals : Fragment() {
-    private lateinit var activityInterface: MyActivityInterface
+    private lateinit var activityInterface: MainActivity.MyActivityInterface
     private lateinit var registerHanleyPark: FloatingActionButton
     private lateinit var enroll: FloatingActionButton
     private lateinit var exerciseScheme: FloatingActionButton
@@ -31,7 +31,7 @@ class Goals : Fragment() {
     // Notification channel
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is MyActivityInterface) {
+        if (context is MainActivity.MyActivityInterface) {
             activityInterface = context
         }
     }

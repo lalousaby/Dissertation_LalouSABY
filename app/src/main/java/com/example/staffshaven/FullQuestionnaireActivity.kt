@@ -366,18 +366,25 @@ class FullQuestionnaireActivity : AppCompatActivity(), Questionnaire6.Questionna
             selectedType = "Text"
         }
 
-        if (selectedOptions.contains("Food")) {
-            selectedContent = "Food"
+        if (selectedOptions.contains("Food") && selectedOptions.contains("Sleep")) {
+            selectedContent = "Food and Sleep"
         }
-        if (selectedOptions.contains("Sleep")) {
-            selectedContent = "Sleep"
+        if (selectedOptions.contains("Food") && selectedOptions.contains("Sport")) {
+            selectedContent = "Food and Sport"
         }
-        if (selectedOptions.contains("Sport")) {
-            selectedContent = "Sport"
+        if (selectedOptions.contains("Food") && selectedOptions.contains("Relaxation")) {
+            selectedContent = "Food and Relaxation"
         }
-        if (selectedOptions.contains("Relaxation")) {
-            selectedContent = "Relaxation"
+        if (selectedOptions.contains("Sleep") && selectedOptions.contains("Sport")) {
+            selectedContent = "Sleep and Sport"
         }
+        if (selectedOptions.contains("Sleep") && selectedOptions.contains("Relaxation")) {
+            selectedContent = "Sleep and Relaxation"
+        }
+        if (selectedOptions.contains("Sport") && selectedOptions.contains("Relaxation")) {
+            selectedContent = "Sport and Relaxation"
+        }
+
 
         val sharedPrefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
         val editor = sharedPrefs.edit()

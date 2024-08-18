@@ -22,8 +22,8 @@
         android:icon="@drawable/food" />
 
     <item
-        android:id="@+id/navigation_sleep"
-        android:title="@string/sleep"
-        android:icon="@drawable/sleep" />
+        android:id="@+id/navigation_sport"
+        android:title="@string/sport"
+        android:icon="@drawable/sport" />
 
 </menu>

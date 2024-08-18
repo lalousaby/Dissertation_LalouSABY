@@ -29,6 +29,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import android.Manifest
 import android.app.AlarmManager
 import android.util.Log
+import android.view.MenuInflater
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.Source
@@ -36,8 +37,8 @@ import com.google.firebase.firestore.firestore
 import java.util.Calendar
 import java.util.TimeZone
 
-class MainActivity : AppCompatActivity(), MyActivityInterface {
-    private lateinit var bottomNavView: BottomNavigationView
+class MainActivity : AppCompatActivity() {
+    private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var binding: ActivityMainBinding
     private var CHANNEL_ID = "com.example.staffshaven.notifications.meditations"
 
@@ -63,17 +64,52 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
                     .get(Source.SERVER)
                     .addOnSuccessListener { document ->
                         if (document != null && document.exists()) {
-                            val selectedThemeId = document.getLong("selectedTheme")?.toInt()
-                                ?: R.style.Base_Theme_StaffsHaven
+                            val selectedThemeId = document.getLong("selectedTheme")?.toInt() ?: R.style.Base_Theme_StaffsHaven
                             setTheme(selectedThemeId)
+
                             binding = ActivityMainBinding.inflate(layoutInflater)
                             setContentView(binding.root)
+                            bottomNavigationView = findViewById(R.id.bottomNavigationView)
+
+
                             val selectedNav = document.getString("selectedNav")
                             if (selectedNav != null) {
                                 buttonListener(selectedNav)
-
                             } else {
                                 buttonListener("Swipe")
+                            }
+
+                            val selectedContent = document.getString("selectedContent")
+                            val inflater = MenuInflater(this)
+
+                            if (selectedContent != null) {
+                                when (selectedContent) {
+                                    "Food and Sleep" -> {
+                                        inflater.inflate(R.menu.bottom_menu, bottomNavigationView.menu)
+                                    }
+
+                                    "Food and Sport" -> {
+                                        inflater.inflate(R.menu.bottom_menu2, bottomNavigationView.menu)
+                                    }
+
+                                    "Food and Relaxation" -> {
+                                        inflater.inflate(R.menu.bottom_menu3, bottomNavigationView.menu)
+                                    }
+
+                                    "Sleep and Sport" -> {
+                                        inflater.inflate(R.menu.bottom_menu4, bottomNavigationView.menu)
+                                    }
+
+//                                    "Sleep and Relaxation" -> {
+//                                        inflater.inflate(R.menu.bottom_menu5, bottomNavigationView.menu)
+//                                    }
+
+                                    "Sport and Relaxation" -> {
+                                        inflater.inflate(R.menu.bottom_menu6, bottomNavigationView.menu)
+                                    }
+                                }
+                            } else {
+                                inflater.inflate(R.menu.bottom_menu, bottomNavigationView.menu)
                             }
                         } else {
                             // Handle case where theme is not found for the email
@@ -81,6 +117,8 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
                             binding = ActivityMainBinding.inflate(layoutInflater)
                             setContentView(binding.root)
                             buttonListener("Swipe")
+                            val inflater = MenuInflater(this)
+                            inflater.inflate(R.menu.bottom_menu, bottomNavigationView.menu)
                         }
                     }
                     .addOnFailureListener { e ->
@@ -88,7 +126,8 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
                         binding = ActivityMainBinding.inflate(layoutInflater)
                         setContentView(binding.root)
                         buttonListener("Swipe")
-
+                        val inflater = MenuInflater(this)
+                        inflater.inflate(R.menu.bottom_menu, bottomNavigationView.menu)
                     }
             } else {
                 // Handle case where user is not logged in
@@ -99,34 +138,148 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
                 if (selectedNav != null) {
                     buttonListener(selectedNav)
                 }
+            }
         }
-    }
+
     }
 
     private fun buttonListener(selectedNav: String) {
-        val btn : FloatingActionButton = findViewById(R.id.btnJournaling)
-        val emergencyCallBtn : ImageButton = findViewById<ImageButton>(R.id.emergencyBtn)
-        val profileBtn : ImageButton = findViewById<ImageButton>(R.id.profileBtn)
+        val btn: FloatingActionButton = findViewById(R.id.btnJournaling)
+        val emergencyCallBtn: ImageButton = findViewById<ImageButton>(R.id.emergencyBtn)
+        val profileBtn: ImageButton = findViewById<ImageButton>(R.id.profileBtn)
 
-        // Replace the fragments when bottom menu clicked
-        bottomNavView = findViewById(R.id.bottomNavigationView)
-        bottomNavView.setOnItemSelectedListener{
-            when (it.itemId){
-                R.id.navigation_dashboard -> {replaceFragment(Dashboard())
-                    emergencyCallBtn.visibility = View.VISIBLE}
-                R.id.navigation_goals -> {replaceFragment(Goals())
-                    emergencyCallBtn.visibility = View.VISIBLE}
-                R.id.navigation_healthyHabits -> {replaceFragment(Health())
-                    emergencyCallBtn.visibility = View.VISIBLE}
-                R.id.navigation_relaxation -> {replaceFragment(Relaxation())
-                    emergencyCallBtn.visibility = View.VISIBLE}
-                else -> {
-                }
-            }
+        bottomNavigationView.setOnItemSelectedListener {
+
             true
         }
 
-        btn.setOnClickListener{
+//            when (it.itemId){
+//                R.id.navigation_dashboard -> {
+//                    replaceFragment(Dashboard())
+//                    emergencyCallBtn.visibility = View.VISIBLE
+//                }
+//                R.id.navigation_goals -> {
+//                    replaceFragment(Goals())
+//                    emergencyCallBtn.visibility = View.VISIBLE
+//                }
+//                R.id.navigation_healthyHabits -> {
+//                    replaceFragment(Health())
+//                    emergencyCallBtn.visibility = View.VISIBLE
+//                }
+//                R.id.navigation_relaxation -> {
+//                    replaceFragment(Relaxation())
+//                    emergencyCallBtn.visibility = View.VISIBLE
+//                }
+//                else -> {
+//                }
+//            }
+//            true
+
+//            Firebase.auth.addAuthStateListener { auth ->
+//                if (user != null) {
+//                    val userEmail = user.email
+//                    db.collection("userData").document(userEmail!!) // Use email as document ID
+//                        .get(Source.SERVER)
+//                        .addOnSuccessListener { document ->
+//                            if (document != null && document.exists()) {
+//                                val selectedContent = document.getString("selectedContent")
+//                                if (selectedContent != null) {
+//                                    when (selectedContent) {
+//                                        "Food and Sleep" -> {
+//
+//                                            when (it.itemId){
+//                                                R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_goals -> {replaceFragment(Goals())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_food -> {replaceFragment(Food())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_sleep -> {replaceFragment(Sleep())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                            }
+//                                        }
+//                                        "Food and Sport" -> {
+//                                            when (it.itemId){
+//                                                R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_goals -> {replaceFragment(Goals())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_food -> {replaceFragment(Food())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_sport -> {replaceFragment(Sport())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                            }
+//                                        }
+//                                        "Food and Relaxation" -> {
+//                                            when (it.itemId){
+//                                                R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_goals -> {replaceFragment(Goals())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_food -> {replaceFragment(Food())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_relaxation -> {replaceFragment(Relaxation())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                            }
+//                                        }
+//                                        "Sleep and Sport" -> {
+//                                            when (it.itemId){
+//                                                R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_goals -> {replaceFragment(Goals())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_sport -> {replaceFragment(Sport())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_sleep -> {replaceFragment(Sleep())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                            }
+//                                        }
+//                                        "Sleep and Relaxation" -> {
+//                                            when (it.itemId){
+//                                                R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_goals -> {replaceFragment(Goals())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_relaxation -> {replaceFragment(Relaxation())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_sleep -> {replaceFragment(Sleep())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                            }
+//                                        }
+//                                        "Sport and Relaxation" -> {
+//                                            when (it.itemId){
+//                                                R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_goals -> {replaceFragment(Goals())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_sport -> {replaceFragment(Sport())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                                R.id.navigation_relaxation -> {replaceFragment(Relaxation())
+//                                                    emergencyCallBtn.visibility = View.VISIBLE}
+//                                            }
+//                                        }
+//                                    }
+//                                }
+//
+//                            } else {
+//                                when (it.itemId){
+//                                    R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+//                                        emergencyCallBtn.visibility = View.VISIBLE}
+//                                    R.id.navigation_goals -> {replaceFragment(Goals())
+//                                        emergencyCallBtn.visibility = View.VISIBLE}
+//                                    R.id.navigation_sleep -> {replaceFragment(Sleep())
+//                                        emergencyCallBtn.visibility = View.VISIBLE}
+//                                    R.id.navigation_relaxation -> {replaceFragment(Relaxation())
+//                                        emergencyCallBtn.visibility = View.VISIBLE}
+//                                }
+//                            }
+//                        }
+//
+//                }
+//            }
+        //}
+
+        btn.setOnClickListener {
             when (selectedNav) {
                 "Click" -> {
                     when (it.id) {
@@ -135,6 +288,7 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
                     }
                     true
                 }
+
                 "Slide" -> {
                     when (it.id) {
                         R.id.btnJournaling -> replaceFragment(JournalSlideMain())
@@ -142,6 +296,7 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
                     }
                     true
                 }
+
                 "Swipe" -> {
                     when (it.id) {
                         R.id.btnJournaling -> replaceFragment(Journaling())
@@ -149,6 +304,7 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
                     }
                     true
                 }
+
                 else -> {
                     when (it.id) {
                         R.id.btnJournaling -> replaceFragment(Journaling())
@@ -159,28 +315,30 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
             }
         }
 
-        emergencyCallBtn.setOnClickListener{
-            when (it.id){
-                R.id.emergencyBtn -> {replaceFragment(Emergency())
-                    emergencyCallBtn.visibility = View.GONE}
+        emergencyCallBtn.setOnClickListener {
+            when (it.id) {
+                R.id.emergencyBtn -> {
+                    replaceFragment(Emergency())
+                    emergencyCallBtn.visibility = View.GONE
+                }
             }
-        }
 
-        profileBtn.setOnClickListener{
-            val intent = Intent(this, Profile::class.java)
-            startActivity(intent)
-            finish()
+            profileBtn.setOnClickListener {
+                val intent = Intent(this, Profile::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
     }
 
-    private fun replaceFragment(fragment: Fragment){
+    private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame_layout,fragment)
+        fragmentTransaction.replace(R.id.frame_layout, fragment)
         fragmentTransaction.commit()
     }
 
-    override fun showNotifications(){
+    fun showNotifications() {
         val NOTIFICATION_ID = 1
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -200,7 +358,8 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
-        val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+        val pendingIntent: PendingIntent =
+            PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
         // Set the parameters of the notification
         var builder = NotificationCompat.Builder(this, CHANNEL_ID)
@@ -221,9 +380,9 @@ class MainActivity : AppCompatActivity(), MyActivityInterface {
         }
     }
 
-}
 
-// Interface to communicate with the Goals activity
-interface MyActivityInterface {
-    fun showNotifications()
+    // Interface to communicate with the Goals activity
+    interface MyActivityInterface {
+        fun showNotifications()
+    }
 }

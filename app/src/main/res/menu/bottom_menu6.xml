@@ -17,13 +17,13 @@
         android:enabled="false" />
 
     <item
-        android:id="@+id/navigation_food"
-        android:title="@string/food"
-        android:icon="@drawable/food" />
+        android:id="@+id/navigation_sport"
+        android:title="@string/sport"
+        android:icon="@drawable/sport" />
 
     <item
-        android:id="@+id/navigation_sleep"
-        android:title="@string/sleep"
-        android:icon="@drawable/sleep" />
+        android:id="@+id/navigation_relaxation"
+        android:title="@string/relaxation"
+        android:icon="@drawable/digital_wellbeing" />
 
 </menu>
