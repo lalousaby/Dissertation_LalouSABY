@@ -11,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -32,10 +33,11 @@
                 android:layout_margin="10dp"/>
 
             <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/animationNo"
+                android:id="@+id/animationVeggies"
                 android:layout_gravity="center"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
+                android:visibility="gone"
                 app:lottie_rawRes="@raw/veggies"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"/>

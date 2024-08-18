@@ -69,6 +69,7 @@
                    android:layout_height="wrap_content"
                    android:id="@+id/frameLayoutClickAnimationYes"
                    android:background="@drawable/frame_selector"
+                   android:visibility="gone"
                    >
 
                    <com.airbnb.lottie.LottieAnimationView
@@ -76,7 +77,6 @@
                        android:layout_width="150dp"
                        android:layout_height="wrap_content"
                        app:lottie_rawRes="@raw/yes"
-                       android:visibility="gone"
                        android:layout_gravity="center"
                        app:lottie_autoPlay="true"
                        app:lottie_loop="false"/>
@@ -106,6 +106,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:visibility="gone"
                     android:id="@+id/frameLayoutClickAnimationNo"
                     android:background="@drawable/frame_selector">
 
@@ -115,7 +116,6 @@
                         android:layout_height="match_parent"
                         app:lottie_rawRes="@raw/no2"
                         android:layout_gravity="center"
-                        android:visibility="gone"
                         app:lottie_autoPlay="true"
                         app:lottie_loop="false"/>
 

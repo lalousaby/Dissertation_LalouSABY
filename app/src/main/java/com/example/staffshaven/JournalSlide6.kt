@@ -8,6 +8,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import com.airbnb.lottie.LottieAnimationView
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
+import com.google.firebase.firestore.Source
+import com.google.firebase.firestore.firestore
 
 
 class JournalSlide6 : Fragment() {
@@ -34,6 +39,37 @@ class JournalSlide6 : Fragment() {
         btnVeggiesNoSlide.setOnClickListener {
             viewModel.selectedVeggiesBtnSlide = R.id.btnVeggiesNoSlide
             updateButtonColors()
+        }
+
+        var animationVeggies : LottieAnimationView = view.findViewById(R.id.animationVeggies)
+
+        // store the theme in Firestore
+        val db = Firebase.firestore
+        val user = Firebase.auth.currentUser
+
+        Firebase.auth.addAuthStateListener { auth ->
+            if (user != null) {
+                val userEmail = user.email
+                db.collection("userData").document(userEmail!!) // Use email as document ID
+                    .get(Source.SERVER)
+                    .addOnSuccessListener { document ->
+                        if (document != null && document.exists()) {
+                            val selectedType = document.getString("selectedType")
+                            if (selectedType != null) {
+                                when (selectedType) {
+                                    "Images" -> {
+                                        animationVeggies.visibility = View.VISIBLE
+                                    }
+                                    "Text" -> {
+                                        animationVeggies.visibility = View.GONE
+                                    }
+//
+                                }
+                            }
+
+                        }
+                    }
+            }
         }
 
         return view

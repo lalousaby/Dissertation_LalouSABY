@@ -7,6 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RatingBar
 import androidx.fragment.app.activityViewModels
+import com.airbnb.lottie.LottieAnimationView
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
+import com.google.firebase.firestore.Source
+import com.google.firebase.firestore.firestore
 
 
 class JournalSlide4 : Fragment() {
@@ -18,7 +23,40 @@ class JournalSlide4 : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_journal_slide4, container, false)
+        val view = inflater.inflate(R.layout.fragment_journal_slide4, container, false)
+
+        var animationNo : LottieAnimationView = view.findViewById(R.id.animationNo)
+
+        // store the theme in Firestore
+        val db = Firebase.firestore
+        val user = Firebase.auth.currentUser
+
+        Firebase.auth.addAuthStateListener { auth ->
+            if (user != null) {
+                val userEmail = user.email
+                db.collection("userData").document(userEmail!!) // Use email as document ID
+                    .get(Source.SERVER)
+                    .addOnSuccessListener { document ->
+                        if (document != null && document.exists()) {
+                            val selectedType = document.getString("selectedType")
+                            if (selectedType != null) {
+                                when (selectedType) {
+                                    "Images" -> {
+                                        animationNo.visibility = View.VISIBLE
+                                    }
+                                    "Text" -> {
+                                        animationNo.visibility = View.GONE
+                                    }
+//
+                                }
+                            }
+
+                        }
+                    }
+            }
+        }
+
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
