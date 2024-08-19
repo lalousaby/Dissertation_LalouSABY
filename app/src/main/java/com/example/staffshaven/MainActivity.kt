@@ -216,7 +216,7 @@ class MainActivity : AppCompatActivity() {
                                     replaceFragment(FoodSlideMain())
                                 }
                                 "Click" -> {
-                                    replaceFragment(SportClick1()) // change !!!!
+                                    replaceFragment(FoodClick1())
                                 }
                             }
                         }
@@ -240,7 +240,7 @@ class MainActivity : AppCompatActivity() {
                                     replaceFragment(FoodSlideMain())
                                 }
                                 "Click" -> {
-                                    replaceFragment(SportClick1()) // change !!!!
+                                    replaceFragment(FoodClick1())
                                 }
                             }
                         }
@@ -276,7 +276,7 @@ class MainActivity : AppCompatActivity() {
                                     replaceFragment(FoodSlideMain())
                                 }
                                 "Click" -> {
-                                    replaceFragment(SportClick1()) // change !!!!
+                                    replaceFragment(FoodClick1())
                                 }
                             }}
                         R.id.navigation_relaxation -> {replaceFragment(Relaxation())

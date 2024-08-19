@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/foodClick3Frag"
+    tools:context=".FoodClick3">
+
+    <TextView
+        android:id="@+id/title"
+        android:paddingTop="65dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:fontFamily="@font/raleway"
+        android:textStyle="bold"
+        android:text="@string/showEat"
+        android:textAllCaps="true"
+        android:shadowColor="?attr/colorAccent"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:textColor="?attr/colorOnPrimary"
+        android:layout_margin="5sp"
+        android:textSize="50dp" />
+    <Button
+        android:id="@+id/findFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="?attr/colorAccent"
+        android:textAlignment="center"
+        android:text="@string/findFoodTxt"
+        android:fontFamily="@font/raleway"
+        android:textSize="14dp"
+        />
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="350sp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="20dp"
+        android:layout_row="1"
+        android:layout_column="0"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="?attr/colorOnPrimary"
+        app:cardCornerRadius="15dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="right"
+                android:layout_margin="5dp">
+                <TextView
+                    android:id="@+id/txtDiner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway"
+                    android:textStyle="bold"
+                    android:text="@string/diner"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="25dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/btnImageD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:backgroundTint="?attr/colorAccent"
+                    android:src="@drawable/gallery"
+                    android:fontFamily="@font/raleway"
+                    android:layout_marginRight="10dp"
+                    />
+                <ImageButton
+                    android:id="@+id/btnPhotoD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:src="@drawable/photo"
+                    android:backgroundTint="?attr/colorAccent"
+                    android:fontFamily="@font/raleway"
+                    android:layout_marginRight="10dp"
+                    />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/editDinerTxt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="12"
+                android:inputType="textMultiLine"
+                android:textColor="?attr/colorAccent"
+                android:textSize="25dp"
+                android:layout_margin="10dp" />
+            <ImageView
+                android:id="@+id/dinerImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="left">
+
+            <ImageButton
+                android:id="@+id/LArrowClick3"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/round_btn"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="20dp"
+                android:elevation="2dp"
+                android:src="@drawable/arrow_left_yellow"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right">
+
+            <Button
+                android:id="@+id/submitFoodClick"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:text="@string/submit"
+                android:fontFamily="@font/raleway"
+                android:textStyle="bold"
+                android:textColor="?attr/colorPrimary"
+                android:backgroundTint="?attr/colorAccent"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+    </FrameLayout>
+
+
+</LinearLayout>
