@@ -43,6 +43,7 @@ class SportClick5 : Fragment() {
             }
             startActivity(intent)
         }
+
         return view
     }
 }
