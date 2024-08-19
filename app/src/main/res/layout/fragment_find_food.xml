@@ -15,9 +15,10 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/anton"
+        android:fontFamily="@font/raleway"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
+        android:paddingTop="65sp"
         android:text="@string/findFoodTxt"
         android:textAlignment="center"
         android:textAllCaps="true"
@@ -122,7 +123,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/anton"
+                    android:fontFamily="@font/raleway"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp"
                     android:text="around campus"
@@ -160,6 +161,14 @@
                             android:padding="10dp"
                             android:orientation="vertical">
 
+                            <ImageView
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
+                                android:id="@+id/imgAldi"
+                                android:src="@drawable/aldi"
+                                android:scaleType="centerCrop"
+                                />
+
                             <TextView
                                 android:id="@+id/txtAldi"
                                 android:layout_width="wrap_content"
@@ -170,6 +179,7 @@
                                 android:text="ALDI, Victoria Road"
                                 android:textColor="?attr/colorAccent"
                                 android:textSize="25dp"
+                                android:visibility="gone"
                                 android:layout_margin="10dp"
                                 android:layout_weight="1"/>
 
@@ -198,13 +208,23 @@
                             android:padding="10dp"
                             android:orientation="vertical">
 
+                            <ImageView
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
+                                android:id="@+id/imgLidl"
+                                android:src="@drawable/lidl"
+                                android:layout_gravity="center"
+                                android:scaleType="centerCrop"
+                                />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/raleway"
+                                android:id="@+id/txtLidl"
                                 android:textStyle="bold"
                                 android:text="Lidl, London Road"
                                 android:textAlignment="center"
+                                android:visibility="gone"
                                 android:textColor="?attr/colorAccent"
                                 android:textSize="25dp"
                                 android:layout_margin="10dp"

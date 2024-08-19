@@ -165,7 +165,7 @@ class Food : Fragment() {
         val findFoodFragment = findFood()
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
 
-        transaction.replace(R.id.healthFrag, findFoodFragment)
+        transaction.replace(R.id.frame_layout, findFoodFragment)
         transaction.commit()
     }
 }
