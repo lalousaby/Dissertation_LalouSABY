@@ -54,7 +54,7 @@ class FoodClick3 : Fragment() {
 
         submitFoodClick = view.findViewById(R.id.submitFoodClick)
         submitFoodClick.setOnClickListener {
-            val FoodFrag = FoodSlide1()
+            val FoodFrag = FoodClick1()
             val transaction = requireActivity().supportFragmentManager.beginTransaction()
 
             transaction.replace(R.id.frame_layout, FoodFrag)
