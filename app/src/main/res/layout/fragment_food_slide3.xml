@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FoodSlide3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right"
+            android:layout_margin="5dp">
+            <TextView
+                android:id="@+id/txtDiner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
+                android:textStyle="bold"
+                android:text="@string/diner"
+                android:textColor="?attr/colorAccent"
+                android:textSize="25dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"/>
+            <ImageButton
+                android:id="@+id/btnImageD"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="right"
+                android:backgroundTint="?attr/colorAccent"
+                android:src="@drawable/gallery"
+                android:fontFamily="@font/raleway"
+                android:layout_marginRight="10dp"
+                />
+            <ImageButton
+                android:id="@+id/btnPhotoD"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="right"
+                android:src="@drawable/photo"
+                android:backgroundTint="?attr/colorAccent"
+                android:fontFamily="@font/raleway"
+                android:layout_marginRight="10dp"
+                />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editDinerTxt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="12"
+            android:inputType="textMultiLine"
+            android:textColor="?attr/colorAccent"
+            android:textSize="25dp"
+            android:layout_margin="10dp" />
+        <ImageView
+            android:id="@+id/dinerImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+</FrameLayout>

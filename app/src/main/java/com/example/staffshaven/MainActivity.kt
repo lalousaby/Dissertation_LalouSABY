@@ -206,8 +206,20 @@ class MainActivity : AppCompatActivity() {
                             emergencyCallBtn.visibility = View.VISIBLE}
                         R.id.navigation_goals -> {replaceFragment(Goals())
                             emergencyCallBtn.visibility = View.VISIBLE}
-                        R.id.navigation_food -> {replaceFragment(Food())
-                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_food -> {
+                            emergencyCallBtn.visibility = View.VISIBLE
+                            when (selectedNav) {
+                                "Swipe" -> {
+                                    replaceFragment(Food())
+                                }
+                                "Slide" -> {
+                                    replaceFragment(FoodSlideMain())
+                                }
+                                "Click" -> {
+                                    replaceFragment(SportClick1()) // change !!!!
+                                }
+                            }
+                        }
                         R.id.navigation_sleep -> {replaceFragment(Sleep())
                             emergencyCallBtn.visibility = View.VISIBLE}
                     }
@@ -218,8 +230,20 @@ class MainActivity : AppCompatActivity() {
                             emergencyCallBtn.visibility = View.VISIBLE}
                         R.id.navigation_goals -> {replaceFragment(Goals())
                             emergencyCallBtn.visibility = View.VISIBLE}
-                        R.id.navigation_food -> {replaceFragment(Food())
-                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_food -> {
+                            emergencyCallBtn.visibility = View.VISIBLE
+                            when (selectedNav) {
+                                "Swipe" -> {
+                                    replaceFragment(Food())
+                                }
+                                "Slide" -> {
+                                    replaceFragment(FoodSlideMain())
+                                }
+                                "Click" -> {
+                                    replaceFragment(SportClick1()) // change !!!!
+                                }
+                            }
+                        }
                         R.id.navigation_sport -> {
                             emergencyCallBtn.visibility = View.VISIBLE
                             when (selectedNav) {
@@ -242,8 +266,19 @@ class MainActivity : AppCompatActivity() {
                             emergencyCallBtn.visibility = View.VISIBLE}
                         R.id.navigation_goals -> {replaceFragment(Goals())
                             emergencyCallBtn.visibility = View.VISIBLE}
-                        R.id.navigation_food -> {replaceFragment(Food())
-                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_food -> {
+                            emergencyCallBtn.visibility = View.VISIBLE
+                            when (selectedNav) {
+                                "Swipe" -> {
+                                    replaceFragment(Food())
+                                }
+                                "Slide" -> {
+                                    replaceFragment(FoodSlideMain())
+                                }
+                                "Click" -> {
+                                    replaceFragment(SportClick1()) // change !!!!
+                                }
+                            }}
                         R.id.navigation_relaxation -> {replaceFragment(Relaxation())
                             emergencyCallBtn.visibility = View.VISIBLE}
                     }
