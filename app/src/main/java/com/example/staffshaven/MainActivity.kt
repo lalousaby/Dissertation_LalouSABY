@@ -86,31 +86,41 @@ class MainActivity : AppCompatActivity() {
                                 when (selectedContent) {
                                     "Food and Sleep" -> {
                                         inflater.inflate(R.menu.bottom_menu, bottomNavigationView.menu)
+                                        menuFragments(selectedContent)
                                     }
 
                                     "Food and Sport" -> {
                                         inflater.inflate(R.menu.bottom_menu2, bottomNavigationView.menu)
+                                        menuFragments(selectedContent)
                                     }
 
                                     "Food and Relaxation" -> {
                                         inflater.inflate(R.menu.bottom_menu3, bottomNavigationView.menu)
+                                        menuFragments(selectedContent)
                                     }
 
                                     "Sleep and Sport" -> {
                                         inflater.inflate(R.menu.bottom_menu4, bottomNavigationView.menu)
+                                        menuFragments(selectedContent)
                                     }
 
-//                                    "Sleep and Relaxation" -> {
-//                                        inflater.inflate(R.menu.bottom_menu5, bottomNavigationView.menu)
-//                                    }
+                                    "Sleep and Relaxation" -> {
+                                        inflater.inflate(R.menu.bottom_menu5, bottomNavigationView.menu)
+                                        menuFragments(selectedContent)
+                                    }
 
                                     "Sport and Relaxation" -> {
                                         inflater.inflate(R.menu.bottom_menu6, bottomNavigationView.menu)
+                                        menuFragments(selectedContent)
                                     }
+
                                 }
                             } else {
                                 inflater.inflate(R.menu.bottom_menu, bottomNavigationView.menu)
+                                menuFragments("Food and Sleep")
                             }
+                            replaceFragment(Dashboard())
+                            bottomNavigationView.selectedItemId = R.id.navigation_dashboard
                         } else {
                             // Handle case where theme is not found for the email
                             setTheme(R.style.Base_Theme_StaffsHaven) // Set a default theme
@@ -143,141 +153,93 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun menuFragments(selectedContent: String) {
+        val emergencyCallBtn: ImageButton = findViewById<ImageButton>(R.id.emergencyBtn)
+
+        bottomNavigationView.setOnItemSelectedListener {
+            when (selectedContent) {
+                "Food and Sleep" -> {
+                    when (it.itemId){
+                        R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_goals -> {replaceFragment(Goals())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_food -> {replaceFragment(Food())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_sleep -> {replaceFragment(Sleep())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                    }
+                }
+                "Food and Sport" -> {
+                    when (it.itemId){
+                        R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_goals -> {replaceFragment(Goals())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_food -> {replaceFragment(Food())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_sport -> {replaceFragment(Sport())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                    }
+                }
+                "Food and Relaxation" -> {
+                    when (it.itemId){
+                        R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_goals -> {replaceFragment(Goals())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_food -> {replaceFragment(Food())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_relaxation -> {replaceFragment(Relaxation())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                    }
+                }
+                "Sleep and Sport" -> {
+                    when (it.itemId){
+                        R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_goals -> {replaceFragment(Goals())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_sport -> {replaceFragment(Sport())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_sleep -> {replaceFragment(Sleep())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                    }
+                }
+                "Sleep and Relaxation" -> {
+                    when (it.itemId){
+                        R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_goals -> {replaceFragment(Goals())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_relaxation -> {replaceFragment(Relaxation())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_sleep -> {replaceFragment(Sleep())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                    }
+                }
+                "Sport and Relaxation" -> {
+                    when (it.itemId){
+                        R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_goals -> {replaceFragment(Goals())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_sport -> {replaceFragment(Sport())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_relaxation -> {replaceFragment(Relaxation())
+                            emergencyCallBtn.visibility = View.VISIBLE}
+                    }
+                }
+            }
+            true
+        }
+
+    }
+
     private fun buttonListener(selectedNav: String) {
         val btn: FloatingActionButton = findViewById(R.id.btnJournaling)
         val emergencyCallBtn: ImageButton = findViewById<ImageButton>(R.id.emergencyBtn)
         val profileBtn: ImageButton = findViewById<ImageButton>(R.id.profileBtn)
-
-        bottomNavigationView.setOnItemSelectedListener {
-
-            true
-        }
-
-//            when (it.itemId){
-//                R.id.navigation_dashboard -> {
-//                    replaceFragment(Dashboard())
-//                    emergencyCallBtn.visibility = View.VISIBLE
-//                }
-//                R.id.navigation_goals -> {
-//                    replaceFragment(Goals())
-//                    emergencyCallBtn.visibility = View.VISIBLE
-//                }
-//                R.id.navigation_healthyHabits -> {
-//                    replaceFragment(Health())
-//                    emergencyCallBtn.visibility = View.VISIBLE
-//                }
-//                R.id.navigation_relaxation -> {
-//                    replaceFragment(Relaxation())
-//                    emergencyCallBtn.visibility = View.VISIBLE
-//                }
-//                else -> {
-//                }
-//            }
-//            true
-
-//            Firebase.auth.addAuthStateListener { auth ->
-//                if (user != null) {
-//                    val userEmail = user.email
-//                    db.collection("userData").document(userEmail!!) // Use email as document ID
-//                        .get(Source.SERVER)
-//                        .addOnSuccessListener { document ->
-//                            if (document != null && document.exists()) {
-//                                val selectedContent = document.getString("selectedContent")
-//                                if (selectedContent != null) {
-//                                    when (selectedContent) {
-//                                        "Food and Sleep" -> {
-//
-//                                            when (it.itemId){
-//                                                R.id.navigation_dashboard -> {replaceFragment(Dashboard())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_goals -> {replaceFragment(Goals())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_food -> {replaceFragment(Food())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_sleep -> {replaceFragment(Sleep())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                            }
-//                                        }
-//                                        "Food and Sport" -> {
-//                                            when (it.itemId){
-//                                                R.id.navigation_dashboard -> {replaceFragment(Dashboard())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_goals -> {replaceFragment(Goals())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_food -> {replaceFragment(Food())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_sport -> {replaceFragment(Sport())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                            }
-//                                        }
-//                                        "Food and Relaxation" -> {
-//                                            when (it.itemId){
-//                                                R.id.navigation_dashboard -> {replaceFragment(Dashboard())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_goals -> {replaceFragment(Goals())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_food -> {replaceFragment(Food())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_relaxation -> {replaceFragment(Relaxation())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                            }
-//                                        }
-//                                        "Sleep and Sport" -> {
-//                                            when (it.itemId){
-//                                                R.id.navigation_dashboard -> {replaceFragment(Dashboard())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_goals -> {replaceFragment(Goals())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_sport -> {replaceFragment(Sport())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_sleep -> {replaceFragment(Sleep())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                            }
-//                                        }
-//                                        "Sleep and Relaxation" -> {
-//                                            when (it.itemId){
-//                                                R.id.navigation_dashboard -> {replaceFragment(Dashboard())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_goals -> {replaceFragment(Goals())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_relaxation -> {replaceFragment(Relaxation())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_sleep -> {replaceFragment(Sleep())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                            }
-//                                        }
-//                                        "Sport and Relaxation" -> {
-//                                            when (it.itemId){
-//                                                R.id.navigation_dashboard -> {replaceFragment(Dashboard())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_goals -> {replaceFragment(Goals())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_sport -> {replaceFragment(Sport())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                                R.id.navigation_relaxation -> {replaceFragment(Relaxation())
-//                                                    emergencyCallBtn.visibility = View.VISIBLE}
-//                                            }
-//                                        }
-//                                    }
-//                                }
-//
-//                            } else {
-//                                when (it.itemId){
-//                                    R.id.navigation_dashboard -> {replaceFragment(Dashboard())
-//                                        emergencyCallBtn.visibility = View.VISIBLE}
-//                                    R.id.navigation_goals -> {replaceFragment(Goals())
-//                                        emergencyCallBtn.visibility = View.VISIBLE}
-//                                    R.id.navigation_sleep -> {replaceFragment(Sleep())
-//                                        emergencyCallBtn.visibility = View.VISIBLE}
-//                                    R.id.navigation_relaxation -> {replaceFragment(Relaxation())
-//                                        emergencyCallBtn.visibility = View.VISIBLE}
-//                                }
-//                            }
-//                        }
-//
-//                }
-//            }
-        //}
 
         btn.setOnClickListener {
             when (selectedNav) {
@@ -322,12 +284,11 @@ class MainActivity : AppCompatActivity() {
                     emergencyCallBtn.visibility = View.GONE
                 }
             }
-
-            profileBtn.setOnClickListener {
-                val intent = Intent(this, Profile::class.java)
-                startActivity(intent)
-                finish()
-            }
+        }
+        profileBtn.setOnClickListener {
+            val intent = Intent(this, Profile::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
