@@ -230,7 +230,7 @@ class MainActivity : AppCompatActivity() {
                                     replaceFragment(SportSlideMain())
                                 }
                                 "Click" -> {
-                                    replaceFragment(Sport()) //change!!!!
+                                    replaceFragment(SportClick1())
                                 }
                             }
                         }
@@ -264,7 +264,7 @@ class MainActivity : AppCompatActivity() {
                                     replaceFragment(SportSlideMain())
                                 }
                                 "Click" -> {
-                                    replaceFragment(Sport()) //change!!!!
+                                    replaceFragment(SportClick1())
                                 }
                             }
                         }
@@ -312,7 +312,7 @@ class MainActivity : AppCompatActivity() {
                                     replaceFragment(SportSlideMain())
                                 }
                                 "Click" -> {
-                                    replaceFragment(Sport()) //change!!!!
+                                    replaceFragment(SportClick1())
                                 }
                             }
                         }
