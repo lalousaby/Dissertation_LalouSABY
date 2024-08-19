@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SportSlide4">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/yogaLayout"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:text="Link to a 12 minutes yoga youtube video"
+            android:textColor="?attr/colorAccent"
+            android:textSize="25dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

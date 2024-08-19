@@ -10,16 +10,16 @@
     tools:context=".Relaxation"
     android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/raleway"
-            android:text="Breathing exercise"
-            android:textColor="?attr/colorOnPrimary"
-            android:paddingTop="65dp"
-            android:textSize="47sp"
-            android:textAlignment="center"/>
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway"
+        android:paddingTop="65dp"
+        android:text="Breathing exercise"
+        android:textAlignment="center"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="47sp" />
 
     <ScrollView
         android:layout_height="match_parent"

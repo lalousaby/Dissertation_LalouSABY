@@ -86,41 +86,77 @@ class MainActivity : AppCompatActivity() {
                                 when (selectedContent) {
                                     "Food and Sleep" -> {
                                         inflater.inflate(R.menu.bottom_menu, bottomNavigationView.menu)
-                                        menuFragments(selectedContent)
+                                        if (selectedNav != null) {
+                                            menuFragments(selectedContent, selectedNav)
+                                        } else {
+                                            menuFragments(selectedContent, "Click")
+                                        }
+                                        replaceFragment(Dashboard())
+                                        bottomNavigationView.selectedItemId = R.id.navigation_dashboard
                                     }
 
                                     "Food and Sport" -> {
                                         inflater.inflate(R.menu.bottom_menu2, bottomNavigationView.menu)
-                                        menuFragments(selectedContent)
+                                        if (selectedNav != null) {
+                                            menuFragments(selectedContent, selectedNav)
+                                        } else {
+                                            menuFragments(selectedContent, "Click")
+                                        }
+                                        replaceFragment(Dashboard())
+                                        bottomNavigationView.selectedItemId = R.id.navigation_dashboard
                                     }
 
                                     "Food and Relaxation" -> {
                                         inflater.inflate(R.menu.bottom_menu3, bottomNavigationView.menu)
-                                        menuFragments(selectedContent)
+                                        if (selectedNav != null) {
+                                            menuFragments(selectedContent, selectedNav)
+                                        } else {
+                                            menuFragments(selectedContent, "Click")
+                                        }
+                                        replaceFragment(Dashboard())
+                                        bottomNavigationView.selectedItemId = R.id.navigation_dashboard
                                     }
 
                                     "Sleep and Sport" -> {
                                         inflater.inflate(R.menu.bottom_menu4, bottomNavigationView.menu)
-                                        menuFragments(selectedContent)
+                                        if (selectedNav != null) {
+                                            menuFragments(selectedContent, selectedNav)
+                                        } else {
+                                            menuFragments(selectedContent, "Click")
+                                        }
+                                        replaceFragment(Dashboard())
+                                        bottomNavigationView.selectedItemId = R.id.navigation_dashboard
                                     }
 
                                     "Sleep and Relaxation" -> {
                                         inflater.inflate(R.menu.bottom_menu5, bottomNavigationView.menu)
-                                        menuFragments(selectedContent)
+                                        if (selectedNav != null) {
+                                            menuFragments(selectedContent, selectedNav)
+                                        }else {
+                                            menuFragments(selectedContent, "Click")
+                                        }
+                                        replaceFragment(Dashboard())
+                                        bottomNavigationView.selectedItemId = R.id.navigation_dashboard
                                     }
 
                                     "Sport and Relaxation" -> {
                                         inflater.inflate(R.menu.bottom_menu6, bottomNavigationView.menu)
-                                        menuFragments(selectedContent)
+                                        if (selectedNav != null) {
+                                            menuFragments(selectedContent, selectedNav)
+                                        } else {
+                                            menuFragments(selectedContent, "Click")
+                                        }
+                                        replaceFragment(Dashboard())
+                                        bottomNavigationView.selectedItemId = R.id.navigation_dashboard
                                     }
 
                                 }
                             } else {
                                 inflater.inflate(R.menu.bottom_menu, bottomNavigationView.menu)
-                                menuFragments("Food and Sleep")
+                                menuFragments("Food and Sleep", "Click")
+                                replaceFragment(Dashboard())
+                                bottomNavigationView.selectedItemId = R.id.navigation_dashboard
                             }
-                            replaceFragment(Dashboard())
-                            bottomNavigationView.selectedItemId = R.id.navigation_dashboard
                         } else {
                             // Handle case where theme is not found for the email
                             setTheme(R.style.Base_Theme_StaffsHaven) // Set a default theme
@@ -129,6 +165,8 @@ class MainActivity : AppCompatActivity() {
                             buttonListener("Swipe")
                             val inflater = MenuInflater(this)
                             inflater.inflate(R.menu.bottom_menu, bottomNavigationView.menu)
+                            replaceFragment(Dashboard())
+                            bottomNavigationView.selectedItemId = R.id.navigation_dashboard
                         }
                     }
                     .addOnFailureListener { e ->
@@ -138,6 +176,8 @@ class MainActivity : AppCompatActivity() {
                         buttonListener("Swipe")
                         val inflater = MenuInflater(this)
                         inflater.inflate(R.menu.bottom_menu, bottomNavigationView.menu)
+                        replaceFragment(Dashboard())
+                        bottomNavigationView.selectedItemId = R.id.navigation_dashboard
                     }
             } else {
                 // Handle case where user is not logged in
@@ -148,12 +188,14 @@ class MainActivity : AppCompatActivity() {
                 if (selectedNav != null) {
                     buttonListener(selectedNav)
                 }
+                replaceFragment(Dashboard())
+                bottomNavigationView.selectedItemId = R.id.navigation_dashboard
             }
         }
 
     }
 
-    private fun menuFragments(selectedContent: String) {
+    private fun menuFragments(selectedContent: String, selectedNav: String) {
         val emergencyCallBtn: ImageButton = findViewById<ImageButton>(R.id.emergencyBtn)
 
         bottomNavigationView.setOnItemSelectedListener {
@@ -178,8 +220,20 @@ class MainActivity : AppCompatActivity() {
                             emergencyCallBtn.visibility = View.VISIBLE}
                         R.id.navigation_food -> {replaceFragment(Food())
                             emergencyCallBtn.visibility = View.VISIBLE}
-                        R.id.navigation_sport -> {replaceFragment(Sport())
-                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_sport -> {
+                            emergencyCallBtn.visibility = View.VISIBLE
+                            when (selectedNav) {
+                                "Swipe" -> {
+                                    replaceFragment(Sport())
+                                }
+                                "Slide" -> {
+                                    replaceFragment(SportSlideMain())
+                                }
+                                "Click" -> {
+                                    replaceFragment(Sport()) //change!!!!
+                                }
+                            }
+                        }
                     }
                 }
                 "Food and Relaxation" -> {
@@ -200,8 +254,20 @@ class MainActivity : AppCompatActivity() {
                             emergencyCallBtn.visibility = View.VISIBLE}
                         R.id.navigation_goals -> {replaceFragment(Goals())
                             emergencyCallBtn.visibility = View.VISIBLE}
-                        R.id.navigation_sport -> {replaceFragment(Sport())
-                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_sport -> {
+                            emergencyCallBtn.visibility = View.VISIBLE
+                            when (selectedNav) {
+                                "Swipe" -> {
+                                    replaceFragment(Sport())
+                                }
+                                "Slide" -> {
+                                    replaceFragment(SportSlideMain())
+                                }
+                                "Click" -> {
+                                    replaceFragment(Sport()) //change!!!!
+                                }
+                            }
+                        }
                         R.id.navigation_sleep -> {replaceFragment(Sleep())
                             emergencyCallBtn.visibility = View.VISIBLE}
                     }
@@ -214,8 +280,20 @@ class MainActivity : AppCompatActivity() {
                             emergencyCallBtn.visibility = View.VISIBLE}
                         R.id.navigation_relaxation -> {replaceFragment(Relaxation())
                             emergencyCallBtn.visibility = View.VISIBLE}
-                        R.id.navigation_sleep -> {replaceFragment(Sleep())
-                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_sleep -> {
+                            emergencyCallBtn.visibility = View.VISIBLE
+//                            when (selectedNav) {
+//                                "Swipe" -> {
+//                                    replaceFragment(Sleep())
+//                                }
+//                                "Slide" -> {
+//                                    replaceFragment(SleepSlideMain())
+//                                }
+//                                "Click" -> {
+//                                    replaceFragment(Sleep()) //change!!!!
+//                                }
+//                            }
+                        }
                     }
                 }
                 "Sport and Relaxation" -> {
@@ -224,8 +302,20 @@ class MainActivity : AppCompatActivity() {
                             emergencyCallBtn.visibility = View.VISIBLE}
                         R.id.navigation_goals -> {replaceFragment(Goals())
                             emergencyCallBtn.visibility = View.VISIBLE}
-                        R.id.navigation_sport -> {replaceFragment(Sport())
-                            emergencyCallBtn.visibility = View.VISIBLE}
+                        R.id.navigation_sport -> {
+                            emergencyCallBtn.visibility = View.VISIBLE
+                            when (selectedNav) {
+                                "Swipe" -> {
+                                    replaceFragment(Sport())
+                                }
+                                "Slide" -> {
+                                    replaceFragment(SportSlideMain())
+                                }
+                                "Click" -> {
+                                    replaceFragment(Sport()) //change!!!!
+                                }
+                            }
+                        }
                         R.id.navigation_relaxation -> {replaceFragment(Relaxation())
                             emergencyCallBtn.visibility = View.VISIBLE}
                     }
