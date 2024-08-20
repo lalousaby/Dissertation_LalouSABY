@@ -1,5 +1,6 @@
 package com.example.staffshaven
 
+import android.graphics.Bitmap
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,6 +13,29 @@ class MyViewModel : ViewModel() {
     val _selectedOptions = mutableListOf<String>()
     val selectedOptions: List<String> = _selectedOptions
 
+    val _selectedOptionsJournaling = mutableListOf<String>()
+    val selectedOptionsJournaling: List<String> = _selectedOptionsJournaling
+    val _selectedOptionsJournalingSlide = mutableListOf<String>()
+    val selectedOptionsJournalingSlide: List<String> = _selectedOptionsJournalingSlide
+    val _selectedOptionsFoodSlide = mutableListOf<String>()
+    val selectedOptionsFoodSlide: List<String> = _selectedOptionsFoodSlide
+
+    val _breakfastImage = MutableLiveData<Bitmap?>()
+    val breakfastImage: LiveData<Bitmap?> = _breakfastImage
+
+    val _lunchImage = MutableLiveData<Bitmap?>()
+    val lunchImage: LiveData<Bitmap?> = _lunchImage
+
+    val _dinnerImage = MutableLiveData<Bitmap?>()
+    val dinnerImage: LiveData<Bitmap?> = _dinnerImage
+
+    val _breakfastImageClick = MutableLiveData<Bitmap?>()
+    val breakfastImageClick: LiveData<Bitmap?> = _breakfastImageClick
+    val _lunchImageClick = MutableLiveData<Bitmap?>()
+    val lunchImageClick: LiveData<Bitmap?> = _lunchImageClick
+    val _dinnerImageClick = MutableLiveData<Bitmap?>()
+    val dinnerImageClick: LiveData<Bitmap?> = _dinnerImageClick
+
     //for swipe journaling version
     val _dayTextJournal = MutableLiveData<String>("")
     val dayTextJournal : LiveData<String> = _dayTextJournal
@@ -23,6 +47,22 @@ class MyViewModel : ViewModel() {
     // for slide journaling version
     val _dayTextJournalSlide = MutableLiveData<String>("")
     val dayTextJournalSlide : LiveData<String> = _dayTextJournalSlide
+
+    val _breakfastTextFoodSlide = MutableLiveData<String>("")
+    val breakfastTextFoodSlide : LiveData<String> = _breakfastTextFoodSlide
+
+    val _lunchTextFoodSlide = MutableLiveData<String>("")
+    val lunchTextFoodSlide : LiveData<String> = _lunchTextFoodSlide
+
+    val _dinnerTextFoodSlide = MutableLiveData<String>("")
+    val dinnerTextFoodSlide : LiveData<String> = _dinnerTextFoodSlide
+
+    val _breakfastTextFoodClick = MutableLiveData<String>("")
+    val breakfastTextFoodClick : LiveData<String> = _breakfastTextFoodClick
+    val _lunchTextFoodClick = MutableLiveData<String>("")
+    val lunchTextFoodClick : LiveData<String> = _lunchTextFoodClick
+    val _dinnerTextFoodClick = MutableLiveData<String>("")
+    val dinnerTextFoodClick : LiveData<String> = _dinnerTextFoodClick
 
     // for swipe journaling version
     val _positiveJournal = MutableLiveData<String>("")
@@ -78,14 +118,9 @@ class MyViewModel : ViewModel() {
     var selectedVeggiesBtn: Int? = null
     var selectedVeggiesBtnSwipe: Int? = null
 
-    val _selectedOptionsJournaling = mutableListOf<String>()
-    val selectedOptionsJournaling: List<String> = _selectedOptionsJournaling
 
     // for slide journaling version
     var selectedVeggiesBtnSlide: Int? = null
-    val _selectedOptionsJournalingSlide = mutableListOf<String>()
-    val selectedOptionsJournalingSlide: List<String> = _selectedOptionsJournalingSlide
-
 
     // for swipe journaling version
     private val _selectedRadioButtonIdSwipe = MutableLiveData<Int>()
@@ -155,6 +190,25 @@ class MyViewModel : ViewModel() {
         _dayTextJournalSlide.value = text
     }
 
+    fun onBreakfastTextChangedSlide(text: String) {
+        _breakfastTextFoodSlide.value = text
+    }
+    fun onLunchTextChangedSlide(text: String) {
+        _lunchTextFoodSlide.value = text
+    }
+    fun onDinnerTextChangedSlide(text: String) {
+        _dinnerTextFoodSlide.value = text
+    }
+
+    fun onBreakfastTextChangedClick(text: String) {
+        _breakfastTextFoodClick.value = text
+    }
+    fun onLunchTextChangedClick(text: String) {
+        _lunchTextFoodClick.value = text
+    }
+    fun onDinnerTextChangedClick(text: String) {
+        _dinnerTextFoodClick.value = text
+    }
     fun onPositiveTextChanged(text: String) {
         _positiveJournal.value = text
     }
@@ -200,4 +254,25 @@ class MyViewModel : ViewModel() {
     fun onStudyNoSelectedSlide() {
         _selectedStudyBtnIdSlide.value = R.id.frameLayoutSlideAnimationNo
     }
+
+    fun onBreakfastImageChanged(image: Bitmap?) {
+        _breakfastImage.value = image
+    }
+    fun onBreakfastImageChangedClick(image: Bitmap?) {
+        _breakfastImageClick.value = image
+    }
+    fun onLunchImageChanged(image: Bitmap?) {
+        _lunchImage.value = image
+    }
+    fun onLunchImageChangedClick(image: Bitmap?) {
+        _lunchImageClick.value = image
+    }
+    fun onDinnerImageChanged(image: Bitmap?) {
+        _dinnerImage.value = image
+    }
+    fun onDinnerImageChangedClick(image: Bitmap?) {
+        _dinnerImageClick.value = image
+    }
+
+
 }

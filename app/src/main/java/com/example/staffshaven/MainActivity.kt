@@ -159,6 +159,7 @@ class MainActivity : AppCompatActivity() {
                             }
                         } else {
                             // Handle case where theme is not found for the email
+                            bottomNavigationView = findViewById(R.id.bottomNavigationView)
                             setTheme(R.style.Base_Theme_StaffsHaven) // Set a default theme
                             binding = ActivityMainBinding.inflate(layoutInflater)
                             setContentView(binding.root)

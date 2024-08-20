@@ -7,19 +7,26 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.graphics.drawable.toBitmap
+import androidx.fragment.app.activityViewModels
 
 
 class FoodClick2 : Fragment() {
+
+    private val viewModel: MyViewModel by activityViewModels()
 
     private lateinit var RArrowClick2 : ImageButton
     private lateinit var LArrowClick2 : ImageButton
@@ -83,6 +90,7 @@ class FoodClick2 : Fragment() {
                     }
                     if (imageView != null) {
                         imageView.setImageURI(imageUri)
+                        viewModel.onLunchImageChangedClick(imageView.drawable.toBitmap())
                     } else {
                         Toast.makeText(requireContext(), "Unexpected button click", Toast.LENGTH_SHORT).show()
                     }
@@ -104,7 +112,10 @@ class FoodClick2 : Fragment() {
             if (result.resultCode == RESULT_OK && imageBitmap != null) {
                 if (clickedButton != null) {
                     when (clickedButton.id) {
-                        R.id.btnPhotoL -> lunchImg.setImageBitmap(imageBitmap)
+                        R.id.btnPhotoL -> {
+                            lunchImg.setImageBitmap(imageBitmap)
+                            viewModel.onLunchImageChangedClick(imageBitmap)
+                        }
 
                         else -> null
                     }
@@ -124,6 +135,27 @@ class FoodClick2 : Fragment() {
                 captureImage()
             } else {
                 Toast.makeText(requireContext(), "Can not access camera", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val editText = view.findViewById<EditText>(R.id.editLunchTxt)
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                viewModel.onLunchTextChangedClick(s.toString())
+            }
+        })
+
+        viewModel.lunchTextFoodClick.observe(viewLifecycleOwner) { text ->
+            if (editText.text.toString() != text) {
+                editText.setText(text)
+            }
+        }
+
+        viewModel.lunchImageClick.observe(viewLifecycleOwner) { image ->
+            image?.let {
+                lunchImg.setImageBitmap(it)
             }
         }
 
