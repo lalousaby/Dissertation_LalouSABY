@@ -18,12 +18,13 @@ class Dashboard : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for dashboard fragment
-
         val options = viewModel.selectedOptions // how to access the list of selected options in the questionnaire
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
     }
+
 }

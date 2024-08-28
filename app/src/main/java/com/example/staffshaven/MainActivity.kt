@@ -316,7 +316,7 @@ class MainActivity : AppCompatActivity() {
                             emergencyCallBtn.visibility = View.VISIBLE}
                         R.id.navigation_relaxation -> {replaceFragment(Relaxation())
                             emergencyCallBtn.visibility = View.VISIBLE}
-                        R.id.navigation_sleep -> {
+                        R.id.navigation_sleep -> {replaceFragment(Sleep())
                             emergencyCallBtn.visibility = View.VISIBLE
 //                            when (selectedNav) {
 //                                "Swipe" -> {
