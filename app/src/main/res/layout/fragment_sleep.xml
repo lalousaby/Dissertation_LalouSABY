@@ -1,14 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Sleep">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:fontFamily="@font/raleway"
+        android:paddingTop="65dp"
+        android:text="Sleep routine"
+        android:textAllCaps="true"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="44dp" />
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_column="0"
+        android:layout_row="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            >
 
-</FrameLayout>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="?attr/colorOnPrimary"
+                app:cardCornerRadius="15dp"
+                android:layout_gravity="center"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp">
+                    <CheckBox
+                        android:id="@+id/checkbox1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Prepare a light meal"
+                        android:fontFamily="@font/raleway"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:buttonTint="?attr/colorAccent"/>
+                    <CheckBox
+                        android:id="@+id/checkbox2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Turn screens off"
+                        android:fontFamily="@font/raleway"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:buttonTint="?attr/colorAccent"/>
+                    <CheckBox
+                        android:id="@+id/checkbox3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Read a book"
+                        android:fontFamily="@font/raleway"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:buttonTint="?attr/colorAccent"/>
+                    <CheckBox
+                        android:id="@+id/checkbox4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Take a warm bath or shower"
+                        android:fontFamily="@font/raleway"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:buttonTint="?attr/colorAccent"/>
+                    <CheckBox
+                        android:id="@+id/checkbox5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Try breathing exercises"
+                        android:fontFamily="@font/raleway"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:buttonTint="?attr/colorAccent"/>
+                    <CheckBox
+                        android:id="@+id/checkbox6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Go to sleep in a dark and cool bedroom"
+                        android:fontFamily="@font/raleway"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:buttonTint="?attr/colorAccent"/>
+                    <CheckBox
+                        android:id="@+id/checkbox7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Aim for a consistent sleep schedule"
+                        android:fontFamily="@font/raleway"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:buttonTint="?attr/colorAccent"/>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/raleway"
+                android:text="Advices"
+                android:textAllCaps="true"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="34dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="?attr/colorOnPrimary"
+                app:cardCornerRadius="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/meditation"/>
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/open_book"/>
+
+
+                </LinearLayout>
+
+                    <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/no_alcohol"/>
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/no_smoking"/>
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/no_drinking"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+
+</GridLayout>
