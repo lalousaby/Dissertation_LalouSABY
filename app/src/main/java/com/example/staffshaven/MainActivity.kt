@@ -40,7 +40,6 @@ import java.util.TimeZone
 class MainActivity : AppCompatActivity() {
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var binding: ActivityMainBinding
-    private var CHANNEL_ID = "com.example.staffshaven.notifications.meditations"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // Retrieve the theme from SharedPreferences
@@ -318,17 +317,6 @@ class MainActivity : AppCompatActivity() {
                             emergencyCallBtn.visibility = View.VISIBLE}
                         R.id.navigation_sleep -> {replaceFragment(Sleep())
                             emergencyCallBtn.visibility = View.VISIBLE
-//                            when (selectedNav) {
-//                                "Swipe" -> {
-//                                    replaceFragment(Sleep())
-//                                }
-//                                "Slide" -> {
-//                                    replaceFragment(SleepSlideMain())
-//                                }
-//                                "Click" -> {
-//                                    replaceFragment(Sleep()) //change!!!!
-//                                }
-//                            }
                         }
                     }
                 }
@@ -423,48 +411,6 @@ class MainActivity : AppCompatActivity() {
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frame_layout, fragment)
         fragmentTransaction.commit()
-    }
-
-    fun showNotifications() {
-        val NOTIFICATION_ID = 1
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = getString(R.string.channel_name)
-            val descriptionText = getString(R.string.channel_description)
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
-                description = descriptionText
-            }
-            // Register the channel with the system.
-            val notificationManager: NotificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
-        }
-
-        // Create an explicit intent for the MainActivity.
-        val intent = Intent(this, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        }
-        val pendingIntent: PendingIntent =
-            PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
-
-        // Set the parameters of the notification
-        var builder = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.drawable.self_improvement)
-            .setContentTitle("Please take care of yourself!")
-            .setContentText("This is your reminder to meditate today!")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-
-        with(NotificationManagerCompat.from(this)) {
-            if (ActivityCompat.checkSelfPermission(
-                    this@MainActivity,
-                    Manifest.permission.POST_NOTIFICATIONS
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                return@with
-            }
-            notify(NOTIFICATION_ID, builder.build())
-        }
     }
 
 

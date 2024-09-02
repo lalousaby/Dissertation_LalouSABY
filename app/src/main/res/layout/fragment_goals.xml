@@ -34,12 +34,13 @@
                 app:maxImageSize="35dp" />
 
             <TextView
+                android:id="@+id/goal1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway"
                 android:textStyle="bold"
                 android:layout_gravity="center"
-                android:text="@string/hanleyPark5K"
+                android:text=""
                 android:textColor="?attr/colorPrimary"
                 android:textSize="23sp"
                 android:padding="10dp"/>
@@ -76,11 +77,13 @@
                 app:maxImageSize="35dp" />
 
             <TextView
+                android:id="@+id/goal2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway"
                 android:textStyle="bold"
-                android:text="@string/meditationReminderTxt"
+                android:text=""
+                android:layout_gravity="center"
                 android:textColor="?attr/colorPrimary"
                 android:textSize="23sp"
                 android:padding="10dp"/>
@@ -106,7 +109,6 @@
             android:orientation="horizontal">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/enroll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="?attr/colorAccent"
@@ -117,11 +119,13 @@
                 app:maxImageSize="35dp" />
 
             <TextView
+                android:id="@+id/goal3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway"
+                android:layout_gravity="center"
                 android:textStyle="bold"
-                android:text="@string/appointmentReminderTxt"
+                android:text=""
                 android:textColor="?attr/colorPrimary"
                 android:textSize="23sp"
                 android:padding="10dp"/>
@@ -157,11 +161,55 @@
                 app:maxImageSize="35dp" />
 
             <TextView
+                android:id="@+id/goal4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway"
                 android:textStyle="bold"
-                android:text="Learn more about the Staffs' Exercise Referral Scheme"
+                android:text=""
+                android:textColor="?attr/colorPrimary"
+                android:textSize="23sp"
+                android:layout_gravity="center"
+
+                android:padding="10dp"/>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="8dp"
+        android:layout_column="0"
+        android:layout_row="4"
+        app:cardBackgroundColor="?attr/colorOnPrimary"
+        app:cardCornerRadius="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/enroll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="?attr/colorAccent"
+                android:src="@drawable/baseline_add_24"
+                app:layout_anchor="@+id/bottomAppBar"
+                android:layout_gravity="center_vertical"
+                app:layout_anchorGravity="top|center"
+                app:maxImageSize="35dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:text="@string/appointmentReminderTxt"
                 android:textColor="?attr/colorPrimary"
                 android:textSize="23sp"
                 android:padding="10dp"/>
@@ -169,17 +217,5 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <Button
-        android:id="@+id/buttonAddGoal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_row="4"
-        android:layout_column="0"
-        android:fontFamily="@font/raleway"
-        android:textSize="18sp"
-        android:layout_gravity="center"
-        android:backgroundTint="?attr/colorAccent"
-        android:textColor="?attr/colorPrimary"
-        android:text="Add a Goal" />
 
 </GridLayout>
