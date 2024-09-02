@@ -11,8 +11,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.firestore
+import org.w3c.dom.Text
 
 class Profile : AppCompatActivity() {
     private lateinit var buttonLogout : Button
@@ -20,6 +23,10 @@ class Profile : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var textView: TextView
     private lateinit var user: FirebaseUser
+    private lateinit var settings: TextView
+    private lateinit var settings2: TextView
+    private lateinit var settings3: TextView
+
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,11 +47,33 @@ class Profile : AppCompatActivity() {
         buttonLogout = findViewById(R.id.logout)
         buttonGoBack = findViewById(R.id.goBack)
         textView = findViewById(R.id.userDetails)
+        settings = findViewById(R.id.userSettings)
+        settings2 = findViewById(R.id.userSettings2)
+        settings3 = findViewById(R.id.userSettings3)
         user = auth.currentUser!!
+        val db = Firebase.firestore
+        val userEmail = user.email
 
         // Display the user's email
         if(user != null){
-            textView.text = user.email
+            if (userEmail != null) {
+                db.collection("userData").document(userEmail)
+                    .get()
+                    .addOnSuccessListener { document ->
+                        if (document != null && document.exists()) {
+                            textView.text = user.email
+
+                            val selectedContent = document.getString("selectedContent")
+                            val selectedNav = document.getString("selectedNav")
+                            val type = document.getString("selectedType")
+
+                            settings.text = "$selectedContent"
+                            settings2.text = "$selectedNav"
+                            settings3.text = "$type"
+                        }
+                    }
+            }
+
         }else{
             val intent = Intent(this, Login::class.java)
             startActivity(intent)

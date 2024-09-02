@@ -6,90 +6,147 @@
     android:layout_height="match_parent"
     tools:context=".Profile">
 
-    <LinearLayout
-        android:id="@+id/main"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:paddingTop="90dp">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            app:srcCompat="@drawable/profile"
-            app:tint="?attr/colorOnPrimary"
-            android:layout_marginTop="20dp" />
-
-        <TextView
-            android:id="@+id/usernameProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:fontFamily="@font/raleway_light"
-            android:text="@string/your_profile"
-            android:textColor="?attr/colorOnPrimary"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:fontFamily="@font/raleway"
-            android:text="@string/personal_details"
-            android:textAllCaps="true"
-            android:textColor="?attr/colorOnPrimary"
-            android:textSize="40sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/raleway"
-            android:text="@string/emailTxt"
-            android:textColor="?attr/colorOnPrimary"
-            android:textSize="35dp" />
-        <TextView
-            android:id="@+id/userDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/raleway"
-            android:textColor="?attr/colorOnPrimary"
-            android:textSize="35dp"
-            android:text=""
-            android:layout_marginBottom="15dp"/>
+        android:layout_height="match_parent">
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="30dp">
-            <Button
-                android:id="@+id/logout"
-                android:layout_width="150dp"
-                android:layout_height="70dp"
-                android:fontFamily="@font/raleway"
-                android:textStyle="bold"
-                android:text="@string/log_out"
-                android:backgroundTint="?attr/colorAccent"
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                app:srcCompat="@drawable/profile"
+                app:tint="?attr/colorOnPrimary"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+                android:id="@+id/usernameProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/raleway_light"
+                android:text="@string/your_profile"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="20dp"
-                android:textColor="?attr/colorPrimary"
-                android:layout_margin="10dp"
-                />
-            <Button
-                android:id="@+id/goBack"
-                android:layout_width="150dp"
-                android:layout_height="70dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
                 android:fontFamily="@font/raleway"
-                android:textStyle="bold"
-                android:text="@string/go_back"
-                android:textSize="20dp"
-                android:textColor="?attr/colorPrimary"
-                android:layout_margin="10dp"
-                android:backgroundTint="?attr/colorAccent"
-                />
+                android:text="@string/personal_details"
+                android:textAllCaps="true"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/raleway"
+                android:text="@string/emailTxt"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="35dp" />
+            <TextView
+                android:id="@+id/userDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="35dp"
+                android:text=""
+                android:layout_marginBottom="15dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/raleway"
+                android:text="Selected Content:"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="35dp" />
+            <TextView
+                android:id="@+id/userSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="25dp"
+                android:text=""
+                android:layout_marginBottom="15dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/raleway"
+                android:text="Selected Navigation:"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="35dp" />
+            <TextView
+                android:id="@+id/userSettings2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="25dp"
+                android:text=""
+                android:layout_marginBottom="15dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/raleway"
+                android:text="Type of content:"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="35dp" />
+            <TextView
+                android:id="@+id/userSettings3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="25dp"
+                android:text=""
+                android:layout_marginBottom="15dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="30dp">
+                <Button
+                    android:id="@+id/logout"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
+                    android:fontFamily="@font/raleway"
+                    android:textStyle="bold"
+                    android:text="@string/log_out"
+                    android:backgroundTint="?attr/colorAccent"
+                    android:textSize="20dp"
+                    android:textColor="?attr/colorPrimary"
+                    android:layout_margin="10dp"
+                    />
+                <Button
+                    android:id="@+id/goBack"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
+                    android:fontFamily="@font/raleway"
+                    android:textStyle="bold"
+                    android:text="@string/go_back"
+                    android:textSize="20dp"
+                    android:textColor="?attr/colorPrimary"
+                    android:layout_margin="10dp"
+                    android:backgroundTint="?attr/colorAccent"
+                    />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
