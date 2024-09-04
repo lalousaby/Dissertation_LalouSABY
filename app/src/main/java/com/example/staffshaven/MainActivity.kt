@@ -202,7 +202,18 @@ class MainActivity : AppCompatActivity() {
             when (selectedContent) {
                 "Food and Sleep" -> {
                     when (it.itemId){
-                        R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+                        R.id.navigation_dashboard -> {
+                            when (selectedNav) {
+                                "Swipe" -> {
+                                    replaceFragment(Dashboard())
+                                }
+                                "Slide" -> {
+                                    replaceFragment(DashboardMain())
+                                }
+                                "Click" -> {
+                                    replaceFragment(DashboardMain())
+                                }
+                            }
                             emergencyCallBtn.visibility = View.VISIBLE}
                         R.id.navigation_goals -> {replaceFragment(Goals())
                             emergencyCallBtn.visibility = View.VISIBLE}
@@ -226,7 +237,18 @@ class MainActivity : AppCompatActivity() {
                 }
                 "Food and Sport" -> {
                     when (it.itemId){
-                        R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+                        R.id.navigation_dashboard -> {
+                            when (selectedNav) {
+                            "Swipe" -> {
+                                replaceFragment(Dashboard())
+                            }
+                            "Slide" -> {
+                                replaceFragment(DashboardMain())
+                            }
+                            "Click" -> {
+                                replaceFragment(DashboardMain())
+                            }
+                        }
                             emergencyCallBtn.visibility = View.VISIBLE}
                         R.id.navigation_goals -> {replaceFragment(Goals())
                             emergencyCallBtn.visibility = View.VISIBLE}
@@ -262,7 +284,18 @@ class MainActivity : AppCompatActivity() {
                 }
                 "Food and Relaxation" -> {
                     when (it.itemId){
-                        R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+                        R.id.navigation_dashboard -> {
+                            when (selectedNav) {
+                                "Swipe" -> {
+                                    replaceFragment(Dashboard())
+                                }
+                                "Slide" -> {
+                                    replaceFragment(DashboardMain())
+                                }
+                                "Click" -> {
+                                    replaceFragment(DashboardMain())
+                                }
+                            }
                             emergencyCallBtn.visibility = View.VISIBLE}
                         R.id.navigation_goals -> {replaceFragment(Goals())
                             emergencyCallBtn.visibility = View.VISIBLE}
@@ -285,7 +318,18 @@ class MainActivity : AppCompatActivity() {
                 }
                 "Sleep and Sport" -> {
                     when (it.itemId){
-                        R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+                        R.id.navigation_dashboard -> {
+                            when (selectedNav) {
+                                "Swipe" -> {
+                                    replaceFragment(Dashboard())
+                                }
+                                "Slide" -> {
+                                    replaceFragment(DashboardMain())
+                                }
+                                "Click" -> {
+                                    replaceFragment(DashboardMain())
+                                }
+                            }
                             emergencyCallBtn.visibility = View.VISIBLE}
                         R.id.navigation_goals -> {replaceFragment(Goals())
                             emergencyCallBtn.visibility = View.VISIBLE}
@@ -309,7 +353,18 @@ class MainActivity : AppCompatActivity() {
                 }
                 "Sleep and Relaxation" -> {
                     when (it.itemId){
-                        R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+                        R.id.navigation_dashboard -> {
+                            when (selectedNav) {
+                                "Swipe" -> {
+                                    replaceFragment(Dashboard())
+                                }
+                                "Slide" -> {
+                                    replaceFragment(DashboardMain())
+                                }
+                                "Click" -> {
+                                    replaceFragment(DashboardMain())
+                                }
+                            }
                             emergencyCallBtn.visibility = View.VISIBLE}
                         R.id.navigation_goals -> {replaceFragment(Goals())
                             emergencyCallBtn.visibility = View.VISIBLE}
@@ -322,7 +377,18 @@ class MainActivity : AppCompatActivity() {
                 }
                 "Sport and Relaxation" -> {
                     when (it.itemId){
-                        R.id.navigation_dashboard -> {replaceFragment(Dashboard())
+                        R.id.navigation_dashboard -> {
+                            when (selectedNav) {
+                            "Swipe" -> {
+                                replaceFragment(Dashboard())
+                            }
+                            "Slide" -> {
+                                replaceFragment(DashboardMain())
+                            }
+                            "Click" -> {
+                                replaceFragment(DashboardMain())
+                            }
+                        }
                             emergencyCallBtn.visibility = View.VISIBLE}
                         R.id.navigation_goals -> {replaceFragment(Goals())
                             emergencyCallBtn.visibility = View.VISIBLE}

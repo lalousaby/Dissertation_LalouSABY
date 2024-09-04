@@ -3,31 +3,140 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingTop="70dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="80dp">
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/checkAnimationView"
-            android:paddingTop="65dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:lottie_rawRes="@raw/welcome"
             android:layout_gravity="center_horizontal"
+            android:paddingBottom="80dp"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"/>
 
-        <TextView
+        <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/card1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/selectionTextView"
-            android:paddingTop="80dp"
-            android:text=""
-            android:textColor="@color/black"
-            android:textSize="35dp"/>
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="20dp"
+            android:layout_gravity="center"
+            android:layout_row="1"
+            android:layout_column="0"
+            app:cardElevation="10dp"
+            app:cardBackgroundColor="?attr/colorOnPrimary"
+            app:cardCornerRadius="15dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:src="@drawable/study"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/selectionTextView"
+                    android:layout_margin="15dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/raleway"
+                    android:text="Fill in the Journaling page to get some feedback (click the + button)"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"
+                    android:textSize="35dp"/>
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/card2"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="20dp"
+            android:layout_gravity="center"
+            android:layout_row="1"
+            android:layout_column="0"
+            app:cardElevation="10dp"
+            app:cardBackgroundColor="?attr/colorOnPrimary"
+            app:cardCornerRadius="15dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/sleeping"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_margin="15dp"
+                    android:id="@+id/selectionSleepTextView"
+                    android:text="Fill in the Journaling page to get some feedback (click the + button)"
+                    android:textSize="35dp"
+                    android:fontFamily="@font/raleway"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/card3"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="20dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            app:cardElevation="10dp"
+            app:cardBackgroundColor="?attr/colorOnPrimary"
+            app:cardCornerRadius="15dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/diet"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    android:gravity="center"
+                    android:text="Fill in the Journaling page to get some feedback (click the + button)"
+                    android:textColor="@color/black"
+                    android:id="@+id/selectionFoodTextView"
+                    android:textSize="35dp"
+                    android:fontFamily="@font/raleway"/>
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
 
