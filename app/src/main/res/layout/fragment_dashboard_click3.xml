@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/dashboardClick3Frag"
+    tools:context=".DashboardClick3">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/checkAnimationView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_rawRes="@raw/welcome"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="65dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
+
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="20dp"
+        android:layout_row="1"
+        android:layout_column="0"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="?attr/colorOnPrimary"
+        app:cardCornerRadius="15dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:src="@drawable/diet"/>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Fill in the Journaling page to get some feedback (click the + button)"
+                    android:layout_margin="15dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:id="@+id/selectionFoodTextView"
+                    android:textSize="35dp"
+                    android:fontFamily="@font/raleway"/>
+            </ScrollView>
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="left">
+
+        <ImageButton
+            android:id="@+id/LArrowClick3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/round_btn"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="20dp"
+            android:elevation="2dp"
+            android:src="@drawable/arrow_left_yellow"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -25,7 +25,6 @@
                 android:layout_gravity="center"
                 android:text="Fill in the Journaling page to get some feedback (click the + button)"
                 android:layout_margin="15dp"
-                android:paddingTop="80dp"
                 android:gravity="center"
                 android:textColor="@color/black"
                 android:id="@+id/selectionFoodTextView"

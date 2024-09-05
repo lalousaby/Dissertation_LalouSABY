@@ -189,8 +189,8 @@ class Questionnaire6 : Fragment() {
             if (viewModel.getCheckBoxState("Question4_checkbox2")) viewModel._selectedOptions.add("Click")
             if (viewModel.getCheckBoxState("Question5_checkbox0")) viewModel._selectedOptions.add("Images")
             if (viewModel.getCheckBoxState("Question5_checkbox1")) viewModel._selectedOptions.add("Text")
-            if (viewModel.getCheckBoxState("Question6_checkbox0")) viewModel._selectedOptions.add("Food")
-            if (viewModel.getCheckBoxState("Question6_checkbox1")) viewModel._selectedOptions.add("Sleep")
+            if (viewModel.getCheckBoxState("Question6_checkbox0")) viewModel._selectedOptions.add("Sleep")
+            if (viewModel.getCheckBoxState("Question6_checkbox1")) viewModel._selectedOptions.add("Food")
             if (viewModel.getCheckBoxState("Question6_checkbox2")) viewModel._selectedOptions.add("Sport")
             if (viewModel.getCheckBoxState("Question6_checkbox3")) viewModel._selectedOptions.add("Relaxation")
 

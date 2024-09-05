@@ -153,15 +153,15 @@ class MainActivity : AppCompatActivity() {
                             } else {
                                 inflater.inflate(R.menu.bottom_menu, bottomNavigationView.menu)
                                 menuFragments("Food and Sleep", "Click")
-                                replaceFragment(Dashboard())
+                                replaceFragment(DashboardClick1())
                                 bottomNavigationView.selectedItemId = R.id.navigation_dashboard
                             }
                         } else {
                             // Handle case where theme is not found for the email
-                            bottomNavigationView = findViewById(R.id.bottomNavigationView)
                             setTheme(R.style.Base_Theme_StaffsHaven) // Set a default theme
                             binding = ActivityMainBinding.inflate(layoutInflater)
                             setContentView(binding.root)
+                            bottomNavigationView = findViewById(R.id.bottomNavigationView)
                             buttonListener("Swipe")
                             val inflater = MenuInflater(this)
                             inflater.inflate(R.menu.bottom_menu, bottomNavigationView.menu)
@@ -211,7 +211,7 @@ class MainActivity : AppCompatActivity() {
                                     replaceFragment(DashboardMain())
                                 }
                                 "Click" -> {
-                                    replaceFragment(DashboardMain())
+                                    replaceFragment(DashboardClick1())
                                 }
                             }
                             emergencyCallBtn.visibility = View.VISIBLE}
@@ -246,7 +246,7 @@ class MainActivity : AppCompatActivity() {
                                 replaceFragment(DashboardMain())
                             }
                             "Click" -> {
-                                replaceFragment(DashboardMain())
+                                replaceFragment(DashboardClick1())
                             }
                         }
                             emergencyCallBtn.visibility = View.VISIBLE}
@@ -293,7 +293,7 @@ class MainActivity : AppCompatActivity() {
                                     replaceFragment(DashboardMain())
                                 }
                                 "Click" -> {
-                                    replaceFragment(DashboardMain())
+                                    replaceFragment(DashboardClick1())
                                 }
                             }
                             emergencyCallBtn.visibility = View.VISIBLE}
@@ -327,7 +327,7 @@ class MainActivity : AppCompatActivity() {
                                     replaceFragment(DashboardMain())
                                 }
                                 "Click" -> {
-                                    replaceFragment(DashboardMain())
+                                    replaceFragment(DashboardClick1())
                                 }
                             }
                             emergencyCallBtn.visibility = View.VISIBLE}
@@ -362,7 +362,7 @@ class MainActivity : AppCompatActivity() {
                                     replaceFragment(DashboardMain())
                                 }
                                 "Click" -> {
-                                    replaceFragment(DashboardMain())
+                                    replaceFragment(DashboardClick1())
                                 }
                             }
                             emergencyCallBtn.visibility = View.VISIBLE}
@@ -386,7 +386,7 @@ class MainActivity : AppCompatActivity() {
                                 replaceFragment(DashboardMain())
                             }
                             "Click" -> {
-                                replaceFragment(DashboardMain())
+                                replaceFragment(DashboardClick1())
                             }
                         }
                             emergencyCallBtn.visibility = View.VISIBLE}

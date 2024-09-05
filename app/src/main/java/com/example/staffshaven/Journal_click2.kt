@@ -26,6 +26,8 @@ class Journal_click2 : Fragment() {
 
     private lateinit var RArrowClick2 : ImageButton
     private lateinit var LArrowClick2 : ImageButton
+    private lateinit var btnStudyYes : Button
+    private lateinit var btnStudyNo : Button
 
     private lateinit var frameLayoutClickAnimationYes : FrameLayout
     private lateinit var frameLayoutClickAnimationNo : FrameLayout
@@ -51,6 +53,17 @@ class Journal_click2 : Fragment() {
             transaction.replace(R.id.frame_layout, journalClick1Fragment)
             transaction.addToBackStack(null)
             transaction.commit()
+        }
+
+        btnStudyYes = view.findViewById(R.id.btnStudyYes)
+        btnStudyYes.setOnClickListener {
+            viewModel.selectedStudyBtn = R.id.btnStudyYes
+            updateButtonColors()
+        }
+        btnStudyNo = view.findViewById(R.id.btnStudyNo)
+        btnStudyNo.setOnClickListener {
+            viewModel.selectedStudyBtn = R.id.btnStudyNo
+            updateButtonColors()
         }
 
         frameLayoutClickAnimationYes = view.findViewById(R.id.frameLayoutClickAnimationYes)
@@ -126,5 +139,26 @@ class Journal_click2 : Fragment() {
         } else {
         frameLayoutClickAnimationNo.isSelected = false // Set to false if GONE
     }
+    }
+
+    private fun updateButtonColors() {
+
+        val selectedButtonId = viewModel.selectedStudyBtn
+        btnStudyYes.isSelected = selectedButtonId == R.id.btnStudyYes
+        btnStudyNo.isSelected = selectedButtonId == R.id.btnStudyNo
+
+        val typedArray = requireContext().theme.obtainStyledAttributes(
+            intArrayOf(android.R.attr.colorAccent, android.R.attr.colorBackground)
+        )
+        val accentColor = typedArray.getColor(0, 0)
+        val backgroundColor = typedArray.getColor(1,0)
+        typedArray.recycle()
+
+        btnStudyYes.setBackgroundColor(
+            if (viewModel.selectedStudyBtn == R.id.btnStudyYes) backgroundColor else accentColor
+        )
+        btnStudyNo.setBackgroundColor(
+            if (viewModel.selectedStudyBtn == R.id.btnStudyNo) backgroundColor else accentColor
+        )
     }
 }
