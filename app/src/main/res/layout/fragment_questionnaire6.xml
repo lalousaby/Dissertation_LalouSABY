@@ -163,7 +163,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
-                                android:layout_marginBottom="10dp">
+                                android:layout_marginBottom="10dp"
+                                android:layout_gravity="left">
 
                                 <ImageButton
                                     android:id="@+id/LArrow7"
@@ -174,7 +175,14 @@
                                     android:scaleType="fitXY"
                                     android:layout_marginRight="220dp"
                                     />
-
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_gravity="right">
                                 <Button
                                     android:id="@+id/endQuestBtn"
                                     android:layout_width="wrap_content"

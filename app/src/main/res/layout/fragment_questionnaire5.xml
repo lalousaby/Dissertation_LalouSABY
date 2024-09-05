@@ -137,7 +137,7 @@
                             android:layout_height="wrap_content">
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
@@ -150,7 +150,13 @@
                                     android:scaleType="fitXY"
                                     android:layout_marginRight="275dp"
                                     />
-
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginBottom="10dp"
+                                android:layout_gravity="right">
                                 <ImageButton
                                     android:id="@+id/RArrow6"
                                     android:layout_width="48dp"
